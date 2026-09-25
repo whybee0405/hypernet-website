@@ -1,0 +1,93 @@
+# Everything here is namespaced under "hypernet" so it cannot collide with the
+# other projects on this Docker Desktop. That means:
+#   containers  hypernet-web, hypernet-seed
+#   image       hypernet-website:local
+#   volumes     hypernet_db-data, hypernet_media-data
+#   network     hypernet_net
+#   host port   3060, bound to loopback only
+#
+# Override any of the HYPERNET_* values below in .env, which compose reads
+# automatically. See .env.example.
+name: hypernet
+
+x-app-env: &app-env
+  NODE_ENV: production
+  DATABASE_URI: file:/app/data/hypernet.db
+  MEDIA_DIR: /app/public/media
+  NEXT_PUBLIC_SERVER_URL: ${HYPERNET_PUBLIC_URL:-http://localhost:3060}
+  PAYLOAD_SECRET: ${HYPERNET_PAYLOAD_SECRET:?set HYPERNET_PAYLOAD_SECRET in .env}
+  PREVIEW_SECRET: ${HYPERNET_PREVIEW_SECRET:?set HYPERNET_PREVIEW_SECRET in .env}
+
+services:
+  # Applies any pending migrations on every start, then seeds placeholder
+  # content only the first time. The marker file is what makes that decision,
+  # not the database file, because the migration step creates the database
+  # before the seed step ever runs. Restarting the stack therefore never wipes
+  # content the client has entered.
+  seed:
+    container_name: hypernet-seed
+    image: hypernet-website-seed:local
+    build:
+      context: .
+      target: builder
+      args:
+        NEXT_PUBLIC_SERVER_URL: ${HYPERNET_PUBLIC_URL:-http://localhost:3060}
+    environment:
+      <<: *app-env
+      SEED_ADMIN_EMAIL: ${HYPERNET_ADMIN_EMAIL:-hello@hypernet.co.za}
+      SEED_ADMIN_PASSWORD: ${HYPERNET_ADMIN_PASSWORD:?set HYPERNET_ADMIN_PASSWORD in .env}
+    command:
+      - /bin/sh
+      - -lc
+      - |
+        set -e
+        npm run migrate
+        if [ -f /app/data/.seeded ]; then
+          echo "Content already seeded. Leaving the database alone."
+        else
+          echo "Fresh volume detected. Seeding placeholder content."
+          npm run seed
+          touch /app/data/.seeded
+        fi
+        # This container runs as root so it can write to a brand new volume.
+        # The web container runs as the unprivileged node user, so hand the
+        # volumes over before exiting or every write from the running site
+        # fails with SQLITE_READONLY.
+        chown -R 1000:1000 /app/data /app/public/media
+    volumes:
+      - db-data:/app/data
+      - media-data:/app/public/media
+    networks: [net]
+    restart: "no"
+
+  web:
+    container_name: hypernet-web
+    image: hypernet-website:local
+    build:
+      context: .
+      target: runner
+      args:
+        NEXT_PUBLIC_SERVER_URL: ${HYPERNET_PUBLIC_URL:-http://localhost:3060}
+    depends_on:
+      seed:
+        condition: service_completed_successfully
+    environment:
+      <<: *app-env
+      PORT: "3000"
+      HOSTNAME: 0.0.0.0
+    ports:
+      # Loopback only, matching the other local-only projects on this machine.
+      - "127.0.0.1:${HYPERNET_PORT:-3060}:3000"
+    volumes:
+      - db-data:/app/data
+      - media-data:/app/public/media
+    networks: [net]
+    restart: unless-stopped
+
+volumes:
+  db-data:
+  media-data:
+
+networks:
+  net:
+    name: hypernet_net

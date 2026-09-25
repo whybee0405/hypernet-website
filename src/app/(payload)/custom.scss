@@ -1,0 +1,15 @@
+/* Nudge the Payload admin toward the Hypernet palette so editors stay in-brand. */
+:root {
+  --theme-elevation-1000: 16, 24, 40;
+  --color-success-500: 21, 94, 239;
+}
+
+.template-default__wrap,
+.dashboard {
+  --theme-success-500: #155eef;
+}
+
+.nav__brand,
+.graphic-logo {
+  letter-spacing: -0.02em;
+}

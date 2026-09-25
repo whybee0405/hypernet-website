@@ -1,0 +1,32 @@
+# Build artefacts and host-installed dependencies. The image installs its own
+# so the native bindings (sharp, libsql) match the container's platform.
+node_modules
+.next
+out
+build
+
+# Local state. The container keeps its own on named volumes.
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+public/media
+
+# Secrets never enter the build context.
+.env
+.env*.local
+
+
+# Not needed to build or run.
+.git
+.gitignore
+.dockerignore
+Dockerfile
+compose.yaml
+README.md
+BRAND.md
+AGENTS.md
+CLAUDE.md
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store

@@ -1,0 +1,747 @@
+@import 'tailwindcss';
+
+/* Supplied brand artwork, cropped from the master files and exported at 4x
+   navigation size. Only the active theme's asset is requested. */
+.brand-logo {
+  width: 9.5rem;
+  height: 2.25rem;
+  background: center / contain no-repeat url('/brand/hypernet-wordmark-dark.webp');
+}
+
+html[data-theme='light'] .brand-logo {
+  background-image: url('/brand/hypernet-wordmark-light.webp');
+}
+
+.brand-logo-footer {
+  width: min(92vw, 100rem);
+  height: min(34vw, 36rem);
+  background: center / contain no-repeat url('/brand/hypernet-wordmark-footer.webp');
+  opacity: 0.13;
+}
+
+/* ============================================================================
+   Hypernet design system v2: "Night Signal"
+
+   One dark theme for the whole site: a midnight field lit by one warm coral
+   filament (the human voice) against cool Hypernet blue (the network).
+   Sections alternate between two tones of the same theme, `.night` and
+   `.dusk`, so long pages have rhythm without switching theme mid-scroll.
+
+   Every colour a component uses is a semantic custom property, so a section
+   (and anything inside it, including CMS rich text and the contact form)
+   changes tone by adding one class. :root is night.
+   ========================================================================== */
+
+:root,
+.night {
+  color-scheme: dark;
+
+  --brand-blue: #155eef;
+  --brand-blue-deep: #0b3d91;
+  --brand-coral: #e8703a;
+  --brand-coral-deep: #c1571f;
+
+  --surface: #03060f;
+  --panel: #0a1024;
+  --sunken: #060b1a;
+  --raised: #0e1630;
+  --hairline: rgb(148 170 255 / 0.13);
+  --hairline-strong: rgb(148 170 255 / 0.24);
+
+  --ink: #eef2ff;
+  --slate: #93a0c4;
+  --ink-invert: #ffffff;
+  --slate-invert: #b8c7e8;
+
+  --accent: #4f86ff;
+  --accent-text: #8cb0ff;
+  --accent-hover: #7aa3ff;
+  --accent-soft: rgb(79 134 255 / 0.14);
+  --accent-on: #ffffff;
+  --authority: #0b3d91;
+  --warm: #ff7a45;
+  --warm-text: #ff9b70;
+  --warm-soft: rgb(255 122 69 / 0.14);
+
+
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 12px 32px -12px rgb(0 0 0 / 0.6);
+  --shadow-lg: 0 40px 90px -30px rgb(0 0 0 / 0.8);
+
+  --focus-ring: #8cb0ff;
+}
+
+.dusk {
+  --surface: #0a1128;
+  --panel: #0f1834;
+  --sunken: #080e22;
+  --raised: #141e3f;
+  --slate: #9eabcf;
+}
+
+.night,
+.dusk,
+.stay-dark {
+  background-color: var(--surface);
+  color: var(--ink);
+}
+
+/* ---- Light theme ---------------------------------------------------------
+   Set by `data-theme="light"` on <html> (see ThemeToggle and the inline
+   script in the site layout). Same token names, so every component follows.
+   Neutrals are tinted toward Hypernet blue rather than warm paper, and coral
+   text is darkened so it keeps AA contrast on the light surfaces. */
+
+:root[data-theme='light'],
+:root[data-theme='light'] .night {
+  color-scheme: light;
+  --grain: 0.03;
+
+  --surface: #f5f7fc;
+  --panel: #ffffff;
+  --sunken: #eceff7;
+  --raised: #fbfcff;
+  --hairline: rgb(11 22 60 / 0.1);
+  --hairline-strong: rgb(11 22 60 / 0.2);
+
+  --ink: #0a1030;
+  --slate: #4f5877;
+
+  --accent: #155eef;
+  --accent-text: #134fce;
+  --accent-hover: #0f48c0;
+  --accent-soft: rgb(21 94 239 / 0.08);
+  --warm: #e8703a;
+  --warm-text: #b24d17;
+  --warm-soft: rgb(232 112 58 / 0.1);
+
+  --shadow-sm: 0 1px 2px rgb(10 16 48 / 0.06);
+  --shadow-md: 0 14px 34px -14px rgb(10 16 48 / 0.16);
+  --shadow-lg: 0 40px 80px -36px rgb(10 16 48 / 0.26);
+
+  --focus-ring: #155eef;
+}
+
+:root[data-theme='light'] .dusk {
+  --surface: #e9edf7;
+  --panel: #ffffff;
+  --sunken: #dfe4f1;
+  --raised: #f7f9fe;
+  --slate: #4b5472;
+}
+
+/* Photographic and rendered surfaces (the hero video, the map, the night
+   city, the glass renders) have dark backdrops baked in. They stay dark in
+   both themes, as media panels. */
+:root[data-theme='light'] .stay-dark {
+  color-scheme: dark;
+
+  --surface: #03060f;
+  --panel: #0a1024;
+  --sunken: #060b1a;
+  --raised: #0e1630;
+  --hairline: rgb(148 170 255 / 0.13);
+  --hairline-strong: rgb(148 170 255 / 0.24);
+  --ink: #eef2ff;
+  --slate: #93a0c4;
+  --accent: #4f86ff;
+  --accent-text: #8cb0ff;
+  --accent-hover: #7aa3ff;
+  --accent-soft: rgb(79 134 255 / 0.14);
+  --warm: #ff7a45;
+  --warm-text: #ff9b70;
+  --warm-soft: rgb(255 122 69 / 0.14);
+  --focus-ring: #8cb0ff;
+}
+
+/* Nav bar states. Unlayered so they win over the section tone background.
+   In dark mode the idle bar is transparent over the hero; in light mode it is
+   always a solid glass bar, because the hero behind it stays dark. */
+.nav-idle {
+  background-color: transparent;
+  border-color: transparent;
+}
+.nav-solid {
+  background-color: color-mix(in srgb, var(--surface) 80%, transparent);
+}
+:root[data-theme='light'] .nav-idle,
+:root[data-theme='light'] .nav-solid {
+  background-color: color-mix(in srgb, var(--surface) 90%, transparent);
+  border-color: var(--hairline-strong);
+  backdrop-filter: blur(16px);
+}
+
+/* A render placed on a light section sits on its own dark stage so the
+   baked-in backdrop reads as a deliberate panel, not a smudge. */
+.render-stage {
+  border-radius: 28px;
+}
+:root[data-theme='light'] .render-stage {
+  background: #060b1c;
+  overflow: hidden;
+}
+
+@theme inline {
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-technical-mono), ui-monospace, SFMono-Regular, monospace;
+
+  --color-surface: var(--surface);
+  --color-panel: var(--panel);
+  --color-sunken: var(--sunken);
+  --color-raised: var(--raised);
+  --color-hairline: var(--hairline);
+  --color-hairline-strong: var(--hairline-strong);
+  --color-ink: var(--ink);
+  --color-slate: var(--slate);
+  --color-ink-invert: var(--ink-invert);
+  --color-slate-invert: var(--slate-invert);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-on: var(--accent-on);
+  --color-authority: var(--authority);
+  --color-warm: var(--warm);
+  --color-warm-text: var(--warm-text);
+  --color-warm-soft: var(--warm-soft);
+
+  --radius-card: 22px;
+  --radius-input: 14px;
+
+  --shadow-soft: var(--shadow-sm);
+  --shadow-raised: var(--shadow-md);
+  --shadow-float: var(--shadow-lg);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@layer base {
+  * {
+    border-color: var(--hairline);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    background-color: var(--surface);
+  }
+
+  /* Lenis owns smooth scrolling; native smooth scroll would fight it. */
+  html.lenis,
+  html.lenis body {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-stopped {
+    overflow: clip;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  body {
+    background-color: var(--surface);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  /* Film grain over everything. Keeps the large dark fields from banding and
+     gives the renders a shared photographic surface. */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 60;
+    pointer-events: none;
+    opacity: var(--grain, 0.045);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  button:not(:disabled),
+  [role='button'],
+  summary,
+  select {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background-color: var(--warm);
+    color: #0a0f22;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -0.035em;
+    padding-bottom: 0.06em;
+  }
+}
+
+@layer components {
+  /* ---- Type ------------------------------------------------------------- */
+
+  .t-hero {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.75rem, 6.6vw, 6.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.038em;
+  }
+
+  .t-display {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.6rem, 6vw, 5.5rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+  }
+
+  .t-section {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.1rem, 4.3vw, 3.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+  }
+
+  .t-card {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.25rem, 1.7vw, 1.625rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  .t-metric {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 0.9;
+    letter-spacing: -0.06em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* The human accent: the words in a headline that carry the warmth. Same
+     family as the headline, set lighter and in coral, so emphasis comes from
+     weight and colour rather than a second typeface. */
+  .accent-word {
+    font-weight: 400;
+    color: var(--warm-text);
+  }
+
+  .t-meta {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 0.75rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .t-label {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.4;
+    color: var(--slate);
+  }
+
+  .t-lead {
+    font-size: clamp(1.0625rem, 1.3vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--slate);
+    max-width: 58ch;
+  }
+
+  /* ---- Layout ----------------------------------------------------------- */
+
+  .shell {
+    width: 100%;
+    max-width: 1480px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 3.5rem;
+    }
+  }
+
+  .rule {
+    border: 0;
+    border-top: 1px solid var(--hairline);
+  }
+
+  .accent-top {
+    border-top: 2px solid var(--accent);
+  }
+
+  .accent-top-warm {
+    border-top: 2px solid var(--warm);
+  }
+
+  /* ---- Surfaces --------------------------------------------------------- */
+
+  /* Raised surface for content that is genuinely a separate object: a
+     package, a case study, a form. Flat fill plus one hairline. */
+  .card {
+    position: relative;
+    border-radius: var(--radius-card);
+    background: var(--panel);
+    border: 1px solid var(--hairline);
+  }
+
+  .dusk .card {
+    background: var(--raised);
+  }
+
+  /* Blend a render's baked-in dark backdrop into whatever sits behind it. */
+  .render-mask {
+    mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+    -webkit-mask-image: radial-gradient(closest-side, #000 62%, transparent 100%);
+  }
+
+  /* ---- Buttons ---------------------------------------------------------- */
+
+  .btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 0.95rem 1.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+    min-height: 2.75rem;
+    transition:
+      background-color 180ms ease,
+      color 180ms ease,
+      border-color 180ms ease,
+      transform 140ms var(--ease-out-strong);
+  }
+
+  .btn:active {
+    transform: scale(0.97);
+  }
+
+  .btn-primary {
+    background-color: #2360f0;
+    color: #fbfcff;
+  }
+
+  .btn-secondary {
+    background-color: color-mix(in srgb, var(--ink) 4%, transparent);
+    color: var(--ink);
+    border: 1px solid var(--hairline-strong);
+  }
+
+  .btn-on-authority {
+    background-color: #fff;
+    color: var(--brand-blue-deep);
+  }
+
+  .btn-quiet {
+    color: var(--ink);
+    padding-inline: 0.25rem;
+  }
+
+  .btn .btn-arrow {
+    transition: transform 200ms var(--ease-out-strong);
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn-primary:hover {
+      background-color: #3a72f5;
+    }
+    .btn-secondary:hover {
+      border-color: var(--accent);
+      background-color: var(--accent-soft);
+    }
+    .btn-on-authority:hover {
+      background-color: #e8effc;
+    }
+    .btn-quiet:hover {
+      color: var(--accent-text);
+    }
+    .btn:hover .btn-arrow {
+      transform: translateX(3px);
+    }
+  }
+
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--accent-text);
+    transition: color 200ms ease;
+  }
+  .link-arrow svg {
+    transition: transform 200ms var(--ease-out-strong);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .link-arrow:hover {
+      color: var(--ink);
+    }
+    .link-arrow:hover svg {
+      transform: translateX(3px);
+    }
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    border-radius: 999px;
+    border: 1px solid var(--hairline-strong);
+    padding: 0.3rem 0.7rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--slate);
+    background: color-mix(in srgb, var(--ink) 3%, transparent);
+  }
+
+  /* ---- Forms ------------------------------------------------------------ */
+
+  .field-label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .field-input {
+    display: block;
+    width: 100%;
+    border-radius: var(--radius-input);
+    border: 1px solid var(--hairline-strong);
+    background-color: color-mix(in srgb, var(--ink) 3%, var(--surface));
+    color: var(--ink);
+    padding: 0.85rem 1rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    transition:
+      border-color 160ms ease,
+      box-shadow 160ms ease;
+  }
+
+  .field-input::placeholder {
+    color: var(--slate);
+    opacity: 1;
+  }
+
+  .field-input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+
+  .field-input[aria-invalid='true'] {
+    border-color: var(--warm-text);
+  }
+
+  select.field-input option {
+    background: var(--panel);
+    color: var(--ink);
+  }
+
+  .field-help {
+    font-size: 0.8125rem;
+    color: var(--slate);
+    margin-top: 0.375rem;
+  }
+
+  .field-error {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--warm-text);
+    margin-top: 0.375rem;
+  }
+
+  /* ---- Editorial body copy for CMS rich text ---------------------------- */
+
+  .prose-hypernet {
+    color: var(--ink);
+    font-size: 1.0625rem;
+    line-height: 1.8;
+  }
+
+  .prose-hypernet > * + * {
+    margin-top: 1.1rem;
+  }
+
+  .prose-hypernet p {
+    color: color-mix(in srgb, var(--ink) 82%, var(--slate));
+  }
+
+  .prose-hypernet h2 {
+    font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+    line-height: 1.1;
+    margin-top: 3.25rem;
+  }
+
+  .prose-hypernet h3 {
+    font-size: clamp(1.3rem, 1.9vw, 1.55rem);
+    line-height: 1.2;
+    margin-top: 2.25rem;
+  }
+
+  .prose-hypernet h4 {
+    font-size: 1.125rem;
+    margin-top: 1.5rem;
+  }
+
+  .prose-hypernet a {
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+  }
+
+  .prose-hypernet ul,
+  .prose-hypernet ol {
+    padding-left: 1.25rem;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .prose-hypernet ul {
+    list-style: disc;
+  }
+
+  .prose-hypernet ol {
+    list-style: decimal;
+  }
+
+  .prose-hypernet li::marker {
+    color: var(--warm);
+  }
+
+  .prose-hypernet strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .prose-hypernet blockquote {
+    border-left: 0;
+    border-top: 1px solid var(--warm);
+    padding-top: 1.5rem;
+    margin-block: 2.5rem;
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    line-height: 1.3;
+    color: var(--ink);
+  }
+
+  .prose-hypernet hr {
+    border: 0;
+    border-top: 1px solid var(--hairline);
+    margin-block: 2.5rem;
+  }
+
+  /* ---- Skeletons -------------------------------------------------------- */
+
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      var(--panel) 25%,
+      color-mix(in srgb, var(--panel) 70%, var(--ink) 6%) 37%,
+      var(--panel) 63%
+    );
+    background-size: 400% 100%;
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+    border-radius: var(--radius-card);
+  }
+
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0 50%;
+    }
+  }
+}
+
+@layer utilities {
+  .balance {
+    text-wrap: balance;
+  }
+
+  .pretty {
+    text-wrap: pretty;
+  }
+
+  .marquee-track {
+    animation: marquee-scroll 42s linear infinite;
+  }
+
+  @keyframes marquee-scroll {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  @keyframes wa-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.96);
+    }
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      transform: none;
+    }
+  }
+}
