@@ -100,6 +100,17 @@ export function Footer({ settings }: { settings: SiteSetting }) {
                 {settings.addressLines.map((entry) => entry.line).filter(Boolean).join(', ')}
               </p>
             ) : null}
+            <p className="mt-1">
+              Website developed by{' '}
+              <a
+                href="https://cloudia.co.za"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-ink/85 transition-colors hover:text-ink focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              >
+                CloudIA, Your Digital Growth Partner
+              </a>
+            </p>
           </div>
           {settings.legalLinks?.length ? (
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
