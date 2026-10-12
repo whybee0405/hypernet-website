@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Bricolage_Grotesque, Schibsted_Grotesk, Spline_Sans_Mono } from 'next/font/google'
+import { Archivo, Instrument_Sans, Spline_Sans_Mono } from 'next/font/google'
 import { Nav } from '@/components/site/Nav'
 import { Footer } from '@/components/site/Footer'
 import { MotionProvider } from '@/components/site/MotionProvider'
@@ -9,21 +9,16 @@ import { THEME_INIT_SCRIPT } from '@/lib/theme'
 import { getSiteSettings } from '@/lib/payload'
 import './globals.css'
 
-// Display face. Bricolage Grotesque has a width axis and slightly irregular,
-// hand-cut terminals: it reads as confident without the cold neutrality of the
-// usual geometric grotesks, which suits "a human voice" better.
-const bricolage = Bricolage_Grotesque({
+const archivo = Archivo({
   subsets: ['latin'],
-  variable: '--font-bricolage',
+  variable: '--font-archivo',
   display: 'swap',
-  axes: ['wdth', 'opsz'],
 })
 
-// Body face. Schibsted Grotesk was drawn for a newspaper group: sturdy,
-// slightly condensed and plain-spoken, which suits direct service copy.
-const schibsted = Schibsted_Grotesk({
+const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
-  variable: '--font-schibsted',
+  style: ['normal', 'italic'],
+  variable: '--font-instrument-sans',
   display: 'swap',
 })
 
@@ -49,7 +44,7 @@ export const metadata: Metadata = {
     locale: 'en_ZA',
     siteName: 'Hypernet',
     url: siteUrl,
-    images: [{ url: '/brand/hero-signal.webp', width: 2200, height: 1228 }],
+    images: [{ url: '/brand/hero-signal-high.webp', width: 2560, height: 1430 }],
   },
   robots: { index: true, follow: true },
 }
@@ -68,7 +63,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
   return (
     <html
       lang="en-ZA"
-      className={`${bricolage.variable} ${schibsted.variable} ${technicalMono.variable}`}
+      className={`${archivo.variable} ${instrumentSans.variable} ${technicalMono.variable}`}
       data-theme="dark"
       // The inline script below corrects data-theme before paint, so the
       // server and client markup legitimately differ on this one attribute.

@@ -95,7 +95,7 @@ export function FailoverModule() {
                 <defs>
                   <linearGradient id="fo-line" x1="0" x2="1">
                     <stop offset="0" stopColor="#4f86ff" />
-                    <stop offset="1" stopColor="#ff7a45" />
+                    <stop offset="1" stopColor="var(--brand-coral)" />
                   </linearGradient>
                   <filter id="fo-glow" x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="4" result="b" />
@@ -146,8 +146,8 @@ export function FailoverModule() {
 
                 {/* CloudPath node */}
                 <g>
-                  <circle cx="500" cy="160" r="30" fill="rgb(255 122 69 / 0.14)" stroke="#ff7a45" strokeWidth="1.5" />
-                  <circle cx="500" cy="160" r="8" fill="#ff7a45" filter="url(#fo-glow)" />
+                  <circle cx="500" cy="160" r="30" fill="rgb(232 112 58 / 0.14)" stroke="var(--brand-coral)" strokeWidth="1.5" />
+                  <circle cx="500" cy="160" r="8" fill="var(--brand-coral)" filter="url(#fo-glow)" />
                   <text x="500" y="212" textAnchor="middle" className="fill-[var(--ink)] text-[12px] font-semibold">CloudPath</text>
                 </g>
                 <path d="M530 160 L 610 160" stroke="url(#fo-line)" strokeWidth="3" filter="url(#fo-glow)" />

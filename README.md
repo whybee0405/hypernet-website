@@ -70,7 +70,7 @@ Everything is namespaced so it cannot collide with anything else on the machine:
 | Images | `hypernet-website:local` (486 MB), `hypernet-website-seed:local` |
 | Volumes | `hypernet_db-data`, `hypernet_media-data` |
 | Network | `hypernet_net` |
-| Host port | `3060`, bound to `127.0.0.1` only |
+| Host port | `3060` |
 
 Port 3060 was picked because it is clear of the other projects currently on this Docker Desktop.
 Change `HYPERNET_PORT` and `HYPERNET_PUBLIC_URL` in `.env` together if that changes. The public URL

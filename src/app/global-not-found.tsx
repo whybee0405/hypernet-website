@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import { Bricolage_Grotesque, Schibsted_Grotesk } from 'next/font/google'
+import { Archivo, Instrument_Sans } from 'next/font/google'
 import { Logo } from '@/components/site/Logo'
 import './(site)/globals.css'
 
@@ -11,8 +11,8 @@ import './(site)/globals.css'
  * deliberately static: no CMS query, no client JavaScript.
  */
 
-const bricolage = Bricolage_Grotesque({ subsets: ['latin'], variable: '--font-bricolage', display: 'swap' })
-const schibsted = Schibsted_Grotesk({ subsets: ['latin'], variable: '--font-schibsted', display: 'swap' })
+const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', display: 'swap' })
+const instrumentSans = Instrument_Sans({ subsets: ['latin'], variable: '--font-instrument-sans', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Page not found | Hypernet',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function GlobalNotFound() {
   return (
-    <html lang="en-ZA" className={`${bricolage.variable} ${schibsted.variable}`}>
+    <html lang="en-ZA" className={`${archivo.variable} ${instrumentSans.variable}`}>
       <body className="night min-h-screen antialiased">
         <header className="shell flex h-24 items-center">
           <Link href="/" aria-label="Hypernet home">

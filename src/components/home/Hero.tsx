@@ -17,20 +17,18 @@ type HeroProps = {
  *
  * The section is 170vh tall with a sticky 100vh stage, so the first stretch of
  * scrolling is spent inside the hero rather than leaving it. Across that
- * stretch: the filament video pushes in and dims, the two headline lines drift
+ * stretch: the signal image pushes in and dims, the two headline lines drift
  * apart in opposite directions, and the supporting copy lifts away. The
  * reader feels the page respond before any new content arrives.
  *
- * The video is the generated "signal" loop: one coral filament that loops into
- * a speech bubble. The poster is the same frame, so there is no flash while
- * it loads, and under reduced motion the poster is all that shows.
+ * The high-quality signal artwork keeps the filament crisp across large screens.
  */
 export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
   const ref = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
 
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.28])
-  const videoOpacity = useTransform(scrollYProgress, [0, 0.55, 0.9], [1, 0.7, 0])
+  const imageScale = useTransform(scrollYProgress, [0, 1], [1, 1.28])
+  const imageOpacity = useTransform(scrollYProgress, [0, 0.55, 0.9], [1, 0.7, 0])
   const leadX = useTransform(scrollYProgress, [0, 0.8], ['0vw', '-9vw'])
   const accentX = useTransform(scrollYProgress, [0, 0.8], ['0vw', '9vw'])
   const titleOpacity = useTransform(scrollYProgress, [0.25, 0.75], [1, 0])
@@ -43,29 +41,18 @@ export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
   return (
     <section ref={ref} className="stay-dark relative h-[170vh]">
       <div className="sticky top-0 h-[100svh] overflow-hidden">
-        {/* Depth 0: the filament loop. */}
+        {/* Depth 0: the signal artwork. */}
         <motion.div
           aria-hidden="true"
-          style={{ scale: videoScale, opacity: videoOpacity }}
+          style={{ scale: imageScale, opacity: imageOpacity }}
           className="absolute inset-0 origin-[70%_50%]"
         >
-          <video
-            className="absolute inset-0 h-full w-full object-cover object-[72%_50%] motion-reduce:hidden"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            poster="/brand/hero-signal.webp"
-          >
-            <source src="/brand/hero-signal.webm" type="video/webm" />
-            <source src="/brand/hero-signal.mp4" type="video/mp4" />
-          </video>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/brand/hero-signal.webp"
+            src="/brand/hero-signal-high.webp"
             alt=""
-            className="absolute inset-0 hidden h-full w-full object-cover object-[72%_50%] motion-reduce:block"
+            fetchPriority="high"
+            className="absolute inset-0 h-full w-full object-cover object-[72%_50%]"
           />
         </motion.div>
 
@@ -92,7 +79,12 @@ export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
             </motion.span>
             <motion.span style={{ x: accentX }} className="block" aria-hidden="true">
               {accentWords.map((word, index) => (
-                <Word key={`${word}-${index}`} delay={0.45 + index * 0.07} accent>
+                <Word
+                  key={`${word}-${index}`}
+                  delay={0.45 + index * 0.07}
+                  accent
+                  accentFont={word.toLowerCase() === 'human'}
+                >
                   {word}
                 </Word>
               ))}
@@ -131,14 +123,20 @@ export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
   )
 }
 
-function Word({ children, delay, accent }: { children: string; delay: number; accent?: boolean }) {
+function Word({ children, delay, accent, accentFont }: { children: string; delay: number; accent?: boolean; accentFont?: boolean }) {
+  const className = accentFont
+    ? 'hero-accent-word inline-block'
+    : accent
+      ? 'accent-word inline-block'
+      : 'inline-block'
+
   return (
     <span className="inline-block overflow-hidden pb-[0.1em] -mb-[0.1em] pr-[0.22em] align-bottom last:pr-0">
       <motion.span
         initial={{ y: '110%', rotate: 5 }}
         animate={{ y: '0%', rotate: 0 }}
         transition={{ duration: 1.1, delay, ease: EASE }}
-        className={accent ? 'accent-word inline-block text-warm-text' : 'inline-block'}
+        className={className}
       >
         {children}
       </motion.span>

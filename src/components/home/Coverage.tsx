@@ -9,7 +9,7 @@ import type { SiteSetting } from '@/payload-types'
 type Metric = NonNullable<SiteSetting['metrics']>[number]
 
 /**
- * South Africa as a living grid of light. The map zooms gently as the section
+ * South Africa as a grid of light. The map zooms gently as the section
  * crosses the viewport while the statement holds still over it, which gives
  * the "local team, national reach" point real depth.
  *
@@ -39,23 +39,13 @@ export function Coverage({
         style={{ scale, y }}
         className="absolute inset-0 -z-10 lg:left-[28%]"
       >
-        <video
-          className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="none"
-          poster="/brand/sa-map-poster.webp"
-        >
-          <source src="/brand/sa-map.webm" type="video/webm" />
-          <source src="/brand/sa-map.mp4" type="video/mp4" />
-        </video>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/brand/sa-map-poster.webp"
+          src="/brand/sa-map-high.webp"
           alt=""
-          className="absolute inset-0 hidden h-full w-full object-cover motion-reduce:block"
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </motion.div>
       <div

@@ -95,8 +95,8 @@ export function LayersModule() {
             <svg viewBox="0 0 400 400" className="mx-auto h-auto w-full max-w-[520px]">
               <defs>
                 <radialGradient id="lg-core">
-                  <stop offset="0" stopColor="#ff7a45" stopOpacity="0.9" />
-                  <stop offset="1" stopColor="#ff7a45" stopOpacity="0" />
+                  <stop offset="0" stopColor="var(--brand-coral)" stopOpacity="0.9" />
+                  <stop offset="1" stopColor="var(--brand-coral)" stopOpacity="0" />
                 </radialGradient>
                 <filter id="lg-glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="5" result="b" />
@@ -117,7 +117,7 @@ export function LayersModule() {
                       r={entry.r}
                       fill="none"
                       animate={{
-                        stroke: on ? '#ff7a45' : 'rgba(120,140,200,0.35)',
+                        stroke: on ? 'var(--brand-coral)' : 'rgba(120,140,200,0.35)',
                         strokeWidth: on ? 3 : 1.5,
                         opacity: on ? 1 : 0.7,
                       }}
@@ -138,7 +138,7 @@ export function LayersModule() {
               })}
 
               <circle cx="200" cy="200" r="46" fill="url(#lg-core)" opacity="0.35" />
-              <circle cx="200" cy="200" r="30" fill="var(--raised)" stroke="rgba(255,122,69,0.6)" />
+              <circle cx="200" cy="200" r="30" fill="var(--raised)" stroke="rgb(232 112 58 / 0.6)" />
               <text x="200" y="204" textAnchor="middle" className="fill-[var(--ink)] text-[10px] font-semibold">You</text>
 
               {/* The attack: travels in from outside and is stopped at the active ring. */}

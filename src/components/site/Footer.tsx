@@ -125,11 +125,6 @@ export function Footer({ settings }: { settings: SiteSetting }) {
           ) : null}
         </div>
       </div>
-
-      {/* A quiet, full-width use of the approved wordmark finishes the page. */}
-      <div aria-hidden="true" className="pointer-events-none mt-10 select-none overflow-hidden">
-        <div className="brand-logo-footer mx-auto translate-y-[18%]" />
-      </div>
     </footer>
   )
 }

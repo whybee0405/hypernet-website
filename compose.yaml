@@ -4,7 +4,7 @@
 #   image       hypernet-website:local
 #   volumes     hypernet_db-data, hypernet_media-data
 #   network     hypernet_net
-#   host port   3060, bound to loopback only
+#   host port   3060
 #
 # Override any of the HYPERNET_* values below in .env, which compose reads
 # automatically. See .env.example.
@@ -76,8 +76,7 @@ services:
       PORT: "3000"
       HOSTNAME: 0.0.0.0
     ports:
-      # Loopback only, matching the other local-only projects on this machine.
-      - "127.0.0.1:${HYPERNET_PORT:-3060}:3000"
+      - "${HYPERNET_PORT:-3060}:3000"
     volumes:
       - db-data:/app/data
       - media-data:/app/public/media

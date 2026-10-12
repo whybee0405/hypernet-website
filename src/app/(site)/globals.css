@@ -12,13 +12,6 @@ html[data-theme='light'] .brand-logo {
   background-image: url('/brand/hypernet-wordmark-light.webp');
 }
 
-.brand-logo-footer {
-  width: min(92vw, 100rem);
-  height: min(34vw, 36rem);
-  background: center / contain no-repeat url('/brand/hypernet-wordmark-footer.webp');
-  opacity: 0.13;
-}
-
 /* ============================================================================
    Hypernet design system v2: "Night Signal"
 
@@ -39,7 +32,6 @@ html[data-theme='light'] .brand-logo {
   --brand-blue: #155eef;
   --brand-blue-deep: #0b3d91;
   --brand-coral: #e8703a;
-  --brand-coral-deep: #c1571f;
 
   --surface: #03060f;
   --panel: #0a1024;
@@ -59,9 +51,9 @@ html[data-theme='light'] .brand-logo {
   --accent-soft: rgb(79 134 255 / 0.14);
   --accent-on: #ffffff;
   --authority: #0b3d91;
-  --warm: #ff7a45;
-  --warm-text: #ff9b70;
-  --warm-soft: rgb(255 122 69 / 0.14);
+  --warm: var(--brand-coral);
+  --warm-text: var(--brand-coral);
+  --warm-soft: rgb(232 112 58 / 0.14);
 
 
   --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
@@ -89,8 +81,7 @@ html[data-theme='light'] .brand-logo {
 /* ---- Light theme ---------------------------------------------------------
    Set by `data-theme="light"` on <html> (see ThemeToggle and the inline
    script in the site layout). Same token names, so every component follows.
-   Neutrals are tinted toward Hypernet blue rather than warm paper, and coral
-   text is darkened so it keeps AA contrast on the light surfaces. */
+   Neutrals are tinted toward Hypernet blue rather than warm paper. */
 
 :root[data-theme='light'],
 :root[data-theme='light'] .night {
@@ -111,8 +102,8 @@ html[data-theme='light'] .brand-logo {
   --accent-text: #134fce;
   --accent-hover: #0f48c0;
   --accent-soft: rgb(21 94 239 / 0.08);
-  --warm: #e8703a;
-  --warm-text: #b24d17;
+  --warm: var(--brand-coral);
+  --warm-text: var(--brand-coral);
   --warm-soft: rgb(232 112 58 / 0.1);
 
   --shadow-sm: 0 1px 2px rgb(10 16 48 / 0.06);
@@ -148,9 +139,9 @@ html[data-theme='light'] .brand-logo {
   --accent-text: #8cb0ff;
   --accent-hover: #7aa3ff;
   --accent-soft: rgb(79 134 255 / 0.14);
-  --warm: #ff7a45;
-  --warm-text: #ff9b70;
-  --warm-soft: rgb(255 122 69 / 0.14);
+  --warm: var(--brand-coral);
+  --warm-text: var(--brand-coral);
+  --warm-soft: rgb(232 112 58 / 0.14);
   --focus-ring: #8cb0ff;
 }
 
@@ -182,8 +173,8 @@ html[data-theme='light'] .brand-logo {
 }
 
 @theme inline {
-  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-schibsted), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-technical-mono), ui-monospace, SFMono-Regular, monospace;
 
   --color-surface: var(--surface);
@@ -346,11 +337,17 @@ html[data-theme='light'] .brand-logo {
     font-variant-numeric: tabular-nums;
   }
 
-  /* The human accent: the words in a headline that carry the warmth. Same
-     family as the headline, set lighter and in coral, so emphasis comes from
-     weight and colour rather than a second typeface. */
+  /* Coral words in headings use a lighter weight; the hero's "human" adds
+     Instrument Sans italic as a distinct accent. */
   .accent-word {
     font-weight: 400;
+    color: var(--warm-text);
+  }
+
+  .hero-accent-word {
+    font-family: var(--font-sans);
+    font-style: italic;
+    font-weight: 500;
     color: var(--warm-text);
   }
 

@@ -3,7 +3,11 @@ import { adminsOnly, authenticated } from '../access'
 
 export const Users: CollectionConfig = {
   slug: 'users',
-  auth: true,
+  auth: {
+    cookies: {
+      secure: true,
+    },
+  },
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'email', 'role'],
