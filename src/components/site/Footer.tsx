@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { EnvelopeSimple, Phone, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 import { Logo } from './Logo'
 import { PILLARS, serviceHref, servicesInPillar } from '@/content/services'
@@ -30,13 +30,6 @@ export function Footer({ settings }: { settings: SiteSetting }) {
             ) : null}
 
             <div className="mt-8 grid gap-3">
-              <a
-                href={`tel:${settings.phoneHref}`}
-                className="inline-flex items-center gap-3 font-display text-2xl font-bold tracking-[-0.03em] text-ink transition-colors hover:text-accent-text"
-              >
-                <Phone size={20} weight="duotone" aria-hidden="true" className="text-warm" />
-                {settings.phone}
-              </a>
               <a
                 href={`mailto:${settings.email}`}
                 className="inline-flex min-h-6 items-center gap-3 text-[0.9375rem] text-ink/85 transition-colors hover:text-accent-text"

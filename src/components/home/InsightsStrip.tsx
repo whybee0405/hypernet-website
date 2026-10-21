@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 import { Duotone } from '@/components/site/Duotone'
 import { SplitHeading } from '@/components/site/motion'

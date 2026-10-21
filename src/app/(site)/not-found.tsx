@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
+import { RecoveryLinks } from '@/components/site/RecoveryLinks'
 import { Render } from '@/components/site/motion'
 
 export default function NotFound() {
@@ -13,19 +12,11 @@ export default function NotFound() {
           <p className="t-lead mt-7">
             The link may be out of date or mistyped. Use the links below to continue.
           </p>
-          <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <Link href="/" className="btn btn-primary">
-              Back to the homepage
-              <ArrowRight size={16} weight="bold" aria-hidden="true" className="btn-arrow" />
-            </Link>
-            <Link href="/services" className="btn btn-secondary">
-              View services
-            </Link>
-          </div>
+          <RecoveryLinks />
         </div>
         <div className="lg:col-span-5 lg:col-start-8">
           <div className="render-stage mx-auto w-full max-w-[460px]">
-            <Render src="/brand/cloudpath.webp" className="aspect-[4/5] w-full" />
+            <Render alt="CloudPath network service illustration" src="/brand/cloudpath.webp" className="aspect-[4/5] w-full" />
           </div>
         </div>
       </div>

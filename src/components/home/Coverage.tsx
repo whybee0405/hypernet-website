@@ -42,7 +42,7 @@ export function Coverage({
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/brand/sa-map-high.webp"
-          alt=""
+          alt="Illustrated map of South Africa with glowing network connections"
           loading="lazy"
           decoding="async"
           className="absolute inset-0 h-full w-full object-cover"

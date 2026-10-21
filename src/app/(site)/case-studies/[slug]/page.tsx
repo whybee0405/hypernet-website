@@ -1,5 +1,6 @@
+import { pageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
@@ -25,17 +26,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   const image = mediaUrl(study.seo?.image ?? study.heroImage, 'og')
 
-  return {
+  return pageMetadata({
+    path: `/case-studies/${study.slug}`,
     title: study.seo?.title || `${study.client}: ${study.title}`,
     description: study.seo?.description || study.summary,
-    alternates: { canonical: `/case-studies/${study.slug}` },
-    openGraph: {
-      type: 'article',
-      title: study.seo?.title || `${study.client}: ${study.title}`,
-      description: study.seo?.description || study.summary,
-      images: image ? [{ url: image, width: 1200, height: 630 }] : undefined,
-    },
-  }
+    image,
+    imageAlt: mediaAlt(study.seo?.image ?? study.heroImage, study.client),
+    article: true,
+    publishedTime: study.publishedAt,
+  })
 }
 
 export default async function CaseStudyPage({ params }: Params) {
@@ -206,8 +205,8 @@ export default async function CaseStudyPage({ params }: Params) {
       <CtaBand
         heading="Discuss your setup"
         body="Describe the problem and we will tell you whether we have solved something similar before."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

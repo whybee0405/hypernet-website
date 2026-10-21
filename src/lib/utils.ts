@@ -39,7 +39,14 @@ export const mediaUrl = (value: MediaLike, size?: keyof NonNullable<Media['sizes
   const media = asMedia(value)
   if (!media) return ''
   const sized = size ? (media.sizes?.[size]?.url as string | undefined) : undefined
-  return toSameOriginPath(sized || media.url || '')
+  const url = toSameOriginPath(sized || media.url || '')
+  // Keep JPEG share cards for broad social-crawler compatibility. Website
+  // photographs use cached WebP, including future CMS uploads.
+  if (size !== 'og' && url.startsWith('/api/media/file/')) {
+    const filename = url.split('/').pop() || ''
+    if (/\.(jpe?g|png|webp)$/i.test(filename)) return `/optimized-media/${filename}.webp`
+  }
+  return url
 }
 
 export const mediaAlt = (value: MediaLike, fallback = ''): string => asMedia(value)?.alt ?? fallback

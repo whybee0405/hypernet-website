@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
 import { MapPin } from '@phosphor-icons/react/dist/ssr'
 import { PageHero } from '@/components/site/PageHero'
@@ -8,12 +8,7 @@ import { Reveal } from '@/components/site/Reveal'
 import { TestimonialPanel } from '@/components/home/TestimonialPanel'
 import { getSiteSettings, getTestimonials } from '@/lib/payload'
 
-export const metadata: Metadata = {
-  title: 'About Hypernet',
-  description:
-    'Hypernet designs, installs and manages connectivity, communications, security and integration services for businesses across South Africa.',
-  alternates: { canonical: '/about' },
-}
+export const metadata = pageMetadata({ path: '/about' })
 
 /** The three brand pillars, written as behaviour. */
 const PILLARS = [
@@ -71,7 +66,7 @@ export default async function AboutPage() {
         lead="Hypernet designs, installs and manages connectivity, communications, security and integration services for businesses across South Africa, from single sites to multi-branch networks."
         aside={
           <div className="render-stage mx-auto w-full max-w-[440px]">
-            <Render src="/brand/voip.webp" priority className="aspect-[4/5] w-full" />
+            <Render alt="Illustration of a business VoIP telephone handset" src="/brand/voip.webp" priority className="aspect-[4/5] w-full" />
           </div>
         }
       />
@@ -126,7 +121,7 @@ export default async function AboutPage() {
       <section className="stay-dark relative isolate overflow-hidden">
         <div aria-hidden="true" className="absolute inset-0 -z-10">
           <Parallax offset={90} className="absolute inset-x-0 -inset-y-28">
-            <Image src="/brand/city-night.webp" alt="" fill sizes="100vw" className="object-cover" />
+            <Image src="/brand/city-night.webp" alt="City skyline illuminated at night" fill sizes="100vw" className="object-cover" />
           </Parallax>
           <div className="absolute inset-0 bg-gradient-to-r from-surface via-surface/70 to-surface/10" />
         </div>
@@ -188,9 +183,9 @@ export default async function AboutPage() {
 
       <CtaBand
         heading="Contact us"
-        body="Call our service desk during business hours, or send a message and our sales team will reply."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        body="Email hello@hypernet.co.za or send an enquiry and our team will reply."
+        email={settings.email}
+
       />
     </>
   )

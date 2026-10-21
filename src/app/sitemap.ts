@@ -1,43 +1,45 @@
 import type { MetadataRoute } from 'next'
-import { getCaseStudies, getPosts } from '@/lib/payload'
-import { SERVICES } from '@/content/services'
+import { getClient } from '@/lib/payload'
+import { PAGE_SEO } from '@/content/seo'
+import { SITE_URL } from '@/lib/seo'
 
-const base = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+// Refresh published CMS entries without requiring a new deployment.
+export const revalidate = 3600
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [posts, caseStudies] = await Promise.all([
-    getPosts({ limit: 500 }),
-    getCaseStudies({ limit: 500 }),
-  ])
+  const payload = await getClient()
+  const entries: MetadataRoute.Sitemap = Object.keys(PAGE_SEO)
+    .filter((path) => path !== '/thank-you' && !path.startsWith('/insights/') && !path.startsWith('/case-studies/'))
+    .map((path) => ({
+      url: `${SITE_URL}${path}`,
+      changeFrequency: path === '/' ? 'weekly' : 'monthly',
+      priority: path === '/' ? 1 : 0.7,
+    }))
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    { url: `${base}/`, changeFrequency: 'weekly', priority: 1 },
-    { url: `${base}/services`, changeFrequency: 'monthly', priority: 0.9 },
-    ...SERVICES.map((service) => ({
-      url: `${base}/services/${service.slug}`,
-      changeFrequency: 'monthly' as const,
-      priority: 0.9,
-    })),
-    { url: `${base}/pricing`, changeFrequency: 'monthly', priority: 0.9 },
-    { url: `${base}/case-studies`, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${base}/insights`, changeFrequency: 'weekly', priority: 0.8 },
-    { url: `${base}/about`, changeFrequency: 'monthly', priority: 0.7 },
-    { url: `${base}/contact`, changeFrequency: 'yearly', priority: 0.9 },
-  ]
-
-  return [
-    ...staticRoutes,
-    ...posts.map((post) => ({
-      url: `${base}/insights/${post.slug}`,
-      lastModified: post.updatedAt,
-      changeFrequency: 'yearly' as const,
-      priority: 0.6,
-    })),
-    ...caseStudies.map((study) => ({
-      url: `${base}/case-studies/${study.slug}`,
-      lastModified: study.updatedAt,
-      changeFrequency: 'yearly' as const,
-      priority: 0.7,
-    })),
-  ]
+  for (const collection of ['posts', 'case-studies'] as const) {
+    let page = 1
+    let hasNextPage = true
+    while (hasNextPage) {
+      const result = await payload.find({
+        collection,
+        where: { _status: { equals: 'published' } },
+        depth: 0,
+        limit: 100,
+        page,
+        sort: 'id',
+        draft: false,
+      })
+      for (const doc of result.docs) {
+        entries.push({
+          url: `${SITE_URL}/${collection === 'posts' ? 'insights' : 'case-studies'}/${doc.slug}`,
+          lastModified: doc.updatedAt,
+          changeFrequency: 'monthly',
+          priority: 0.6,
+        })
+      }
+      hasNextPage = result.hasNextPage
+      page++
+    }
+  }
+  return entries
 }

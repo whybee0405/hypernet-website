@@ -1,5 +1,6 @@
+import { pageMetadata } from '@/lib/seo'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { notFound } from 'next/navigation'
 import { draftMode } from 'next/headers'
 import { ArrowLeft, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
@@ -26,18 +27,15 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   const image = mediaUrl(post.seo?.image ?? post.heroImage, 'og')
 
-  return {
+  return pageMetadata({
+    path: `/insights/${post.slug}`,
     title: post.seo?.title || post.title,
     description: post.seo?.description || post.excerpt,
-    alternates: { canonical: `/insights/${post.slug}` },
-    openGraph: {
-      type: 'article',
-      title: post.seo?.title || post.title,
-      description: post.seo?.description || post.excerpt,
-      publishedTime: post.publishedAt,
-      images: image ? [{ url: image, width: 1200, height: 630 }] : undefined,
-    },
-  }
+    image,
+    imageAlt: mediaAlt(post.seo?.image ?? post.heroImage, post.title),
+    article: true,
+    publishedTime: post.publishedAt,
+  })
 }
 
 export default async function ArticlePage({ params }: Params) {
@@ -161,8 +159,8 @@ export default async function ArticlePage({ params }: Params) {
       <CtaBand
         heading="Ask our team"
         body="Describe the problem and we will tell you the likely cause before we discuss a quote."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

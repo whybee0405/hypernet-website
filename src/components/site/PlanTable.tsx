@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import { Reveal } from '@/components/site/Reveal'
 import type { Plan } from '@/payload-types'
@@ -104,7 +104,7 @@ export function PlanTable({ plans }: { plans: Plan[] }) {
         {plans.map((plan) => (
           <div key={plan.id}>
             <div className="card p-6">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-wrap items-start justify-between gap-4">
                 <h3 className="font-display text-[1.25rem] font-bold tracking-[-0.02em] text-ink">
                   {plan.name}
                 </h3>
@@ -125,10 +125,10 @@ export function PlanTable({ plans }: { plans: Plan[] }) {
                 ].map((row) => (
                   <div
                     key={row.label}
-                    className="flex items-baseline justify-between gap-4 border-b border-hairline py-3 last:border-b-0"
+                    className="flex flex-col gap-2 border-b border-hairline py-3 last:border-b-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
                   >
                     <dt className="t-meta text-slate">{row.label}</dt>
-                    <dd className="text-right text-[0.9375rem] text-ink">{row.value}</dd>
+                    <dd className="text-[0.9375rem] text-ink sm:text-right">{row.value}</dd>
                   </div>
                 ))}
               </dl>

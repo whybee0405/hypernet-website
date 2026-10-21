@@ -742,3 +742,147 @@ html[data-theme='light'] .brand-logo {
     }
   }
 }
+
+/* Phone layout: real target sizes and readable text, without changing desktop. */
+.mobile-action-bar {
+  display: none;
+}
+
+@media (max-width: 639px) {
+  html {
+    scroll-padding-block: 6rem calc(6rem + env(safe-area-inset-bottom));
+  }
+
+  body {
+    padding-bottom: calc(5rem + env(safe-area-inset-bottom));
+  }
+
+  .t-meta,
+  .t-label,
+  .btn,
+  .link-arrow,
+  .chip,
+  .field-label,
+  .field-input,
+  .field-help,
+  .field-error,
+  .text-xs,
+  .text-sm,
+  [class~='text-[0.75rem]'],
+  [class~='text-[0.8125rem]'],
+  [class~='text-[0.875rem]'],
+  [class~='text-[0.9375rem]'] {
+    font-size: 1rem;
+  }
+
+  .t-meta {
+    letter-spacing: 0.04em;
+  }
+
+  a[href], button, input:not([type='hidden']), select, textarea, summary {
+    min-width: 44px;
+    min-height: 44px;
+    scroll-margin-block: 6rem;
+  }
+
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  footer a,
+  .prose-hypernet a,
+  a[href^='mailto:']:not([class~='hidden']):not([class~='flex']),
+  a[href^='tel:']:not([class~='hidden']):not([class~='flex']),
+  header a[aria-label='Hypernet home'] {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+  }
+
+  footer a {
+    overflow-wrap: anywhere;
+  }
+
+  .mobile-action-bar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 55;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--hairline-strong);
+    box-shadow: 0 -8px 28px rgb(0 0 0 / 0.12);
+  }
+
+  .mobile-action-bar .btn,
+  .mobile-menu-button {
+    min-height: 52px;
+  }
+
+  .mobile-menu-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--hairline-strong);
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .mobile-nav-panel {
+    bottom: calc(5rem + env(safe-area-inset-bottom));
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-services-track {
+    display: grid;
+    width: 100%;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .mobile-services-track > * {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .mobile-services-track > a {
+    height: auto;
+  }
+
+  .mobile-services-track > a > div:first-child {
+    flex: auto;
+    aspect-ratio: 16 / 9;
+  }
+
+  .mobile-case-studies {
+    display: grid;
+    overflow: visible;
+    scroll-snap-type: none;
+  }
+
+  .mobile-case-studies > li {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .mobile-package-card {
+    position: relative;
+    top: auto !important;
+  }
+
+  .mobile-package-card > article {
+    transform: none !important;
+  }
+
+  .mobile-package-card > article > [aria-hidden='true'] {
+    display: none;
+  }
+}

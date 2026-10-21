@@ -1,4 +1,4 @@
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 import { Duotone } from '@/components/site/Duotone'
 import { SplitHeading } from '@/components/site/motion'
@@ -30,7 +30,7 @@ export function CaseStudyRail({ caseStudies }: { caseStudies: CaseStudy[] }) {
 
       <Reveal>
         <ul
-          className="mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 sm:px-8 lg:mt-16 lg:scroll-px-14 lg:px-14 [scrollbar-width:none]"
+          className="mobile-case-studies mt-14 flex snap-x snap-mandatory gap-5 overflow-x-auto px-5 pb-6 sm:px-8 lg:mt-16 lg:scroll-px-14 lg:px-14 [scrollbar-width:none]"
           data-lenis-prevent-wheel
         >
           {caseStudies.map((study) => (

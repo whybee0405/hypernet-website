@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import { pageMetadata } from '@/lib/seo'
+import Link from '@/components/site/SiteLink'
 import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 import { CtaBand } from '@/components/site/CtaBand'
 import { Duotone } from '@/components/site/Duotone'
@@ -8,12 +8,7 @@ import { Reveal } from '@/components/site/Reveal'
 import { getPosts, getSiteSettings } from '@/lib/payload'
 import { CATEGORY_LABELS, formatDate, mediaAlt, mediaUrl } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  title: 'Insights',
-  description:
-    'Articles on connectivity, VoIP and security for South African businesses, written by Hypernet engineers.',
-  alternates: { canonical: '/insights' },
-}
+export const metadata = pageMetadata({ path: '/insights' })
 
 export default async function InsightsPage() {
   const [posts, settings] = await Promise.all([getPosts({ limit: 30 }), getSiteSettings()])
@@ -113,8 +108,8 @@ export default async function InsightsPage() {
       <CtaBand
         heading="Ask our team"
         body="Describe the problem and we will tell you the likely cause before we discuss a quote."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

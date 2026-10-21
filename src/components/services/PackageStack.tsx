@@ -67,7 +67,7 @@ function PackageCard({
 
   return (
     <div
-      className="sticky mb-6 last:mb-0"
+      className="mobile-package-card sticky mb-6 last:mb-0"
       style={{ top: `calc(7rem + ${index * 28}px)` }}
     >
       <motion.article

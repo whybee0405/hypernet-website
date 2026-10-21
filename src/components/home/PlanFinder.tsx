@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import {
@@ -153,7 +153,7 @@ export function PlanFinder({ plans }: { plans: Plan[] }) {
                       </p>
                     ) : null}
 
-                    <dl className="mt-6 grid grid-cols-3 gap-4 border-t border-hairline pt-6">
+                    <dl className="mt-6 grid gap-4 border-t border-hairline pt-6 sm:grid-cols-3">
                       {[
                         { label: 'Connectivity', value: result.downstream },
                         { label: 'VoIP lines', value: result.voipLines },

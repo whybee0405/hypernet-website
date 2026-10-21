@@ -1,0 +1,134 @@
+[
+  {
+    "file": "/workspace/public/brand/sa-map-high.webp",
+    "before": 412452,
+    "after": 112650,
+    "format": "webp"
+  },
+  {
+    "file": "/app/public/media/case-retail-shop-1920x1080.jpg",
+    "before": 313539,
+    "after": 188438,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/case-retail-shop.jpg",
+    "before": 439982,
+    "after": 185942,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/detail-desk-phone.jpg",
+    "before": 236869,
+    "after": 140800,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/detail-fibre-patch-1920x1920.jpg",
+    "before": 273414,
+    "after": 147788,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/detail-fibre-patch.jpg",
+    "before": 355165,
+    "after": 198469,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/fibre-trench-1280x720.jpg",
+    "before": 222288,
+    "after": 183137,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/fibre-trench-1920x1080.jpg",
+    "before": 448869,
+    "after": 192649,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/fibre-trench.jpg",
+    "before": 567816,
+    "after": 191931,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/hero-owner-call.jpg",
+    "before": 270731,
+    "after": 130626,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/install-access-point-1920x1440.jpg",
+    "before": 260194,
+    "after": 150891,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/install-access-point.jpg",
+    "before": 325623,
+    "after": 199164,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/network-cabinet-1920x1440.jpg",
+    "before": 234690,
+    "after": 190210,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/network-cabinet.jpg",
+    "before": 296937,
+    "after": 166181,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/support-tech-desk.jpg",
+    "before": 206137,
+    "after": 120708,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/team-van-morning-1920x1080.jpg",
+    "before": 288480,
+    "after": 166691,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/team-van-morning.jpg",
+    "before": 368770,
+    "after": 162635,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/voip-accounting-office-1920x1440.jpg",
+    "before": 244839,
+    "after": 136886,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/voip-accounting-office.jpg",
+    "before": 304791,
+    "after": 182691,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/voip-phones-bench.jpg",
+    "before": 204786,
+    "after": 123565,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/workshop-dashboard-1920x1440.jpg",
+    "before": 274825,
+    "after": 152686,
+    "format": "jpeg"
+  },
+  {
+    "file": "/app/public/media/workshop-dashboard.jpg",
+    "before": 340657,
+    "after": 146015,
+    "format": "jpeg"
+  }
+]

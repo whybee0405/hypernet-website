@@ -28,7 +28,7 @@ export async function DeferredInsights() {
 
 export function RailSkeleton() {
   return (
-    <section className="night py-24 lg:py-36" aria-hidden="true">
+    <section className="night py-24 lg:py-36" role="status" aria-busy="true" aria-label="Loading content">
       <div className="shell">
         <div className="skeleton h-11 w-full max-w-[26rem]" />
         <div className="skeleton mt-3 h-11 w-full max-w-[20rem]" />
@@ -49,7 +49,7 @@ export function RailSkeleton() {
 
 export function InsightsSkeleton() {
   return (
-    <section className="dusk shell py-24 lg:py-36" aria-hidden="true">
+    <section className="dusk shell py-24 lg:py-36" role="status" aria-busy="true" aria-label="Loading content">
       <div className="skeleton h-11 w-full max-w-[24rem]" />
       <div className="mt-12 grid gap-10 lg:mt-14 lg:grid-cols-12 lg:gap-14">
         <div className="lg:col-span-7">

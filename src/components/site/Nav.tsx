@@ -1,13 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { ArrowRight, ArrowUpRight, CaretDown, List, Phone, X } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, ArrowUpRight, CaretDown, List, EnvelopeSimple, X } from '@phosphor-icons/react/dist/ssr'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
+import { MobileActionBar } from './MobileActionBar'
 import { PILLARS, SERVICES, serviceHref, servicesInPillar, type Service } from '@/content/services'
 import { cn } from '@/lib/utils'
 
@@ -20,7 +21,7 @@ const LINKS = [
   { href: '/about', label: 'About' },
 ]
 
-export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) {
+export function Nav({ email }: { email: string }) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -49,10 +50,16 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
 
   useEffect(() => {
     document.documentElement.style.overflow = mobileOpen ? 'hidden' : ''
+    const content = document.querySelectorAll<HTMLElement>('main, footer, .whatsapp-shortcut')
+    content.forEach((element) => { element.inert = mobileOpen })
     return () => {
       document.documentElement.style.overflow = ''
+      content.forEach((element) => { element.inert = false })
     }
   }, [mobileOpen])
+
+  // Same-page links also close the menu; route-change effects alone miss them.
+  const closeMobile = () => { setMobileOpen(false); setHidden(false) }
 
   useEffect(() => {
     if (!menuOpen && !mobileOpen) return
@@ -89,6 +96,7 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
   const servicesActive = pathname.startsWith('/services')
 
   return (
+    <>
     <motion.header
       ref={headerRef}
       className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4"
@@ -164,11 +172,11 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
           <div className="flex items-center gap-2">
             <ThemeToggle className="hidden sm:inline-flex" />
             <a
-              href={`tel:${phoneHref}`}
-              className="hidden h-11 items-center gap-2 rounded-full px-3 text-[0.9375rem] font-medium text-ink/85 transition-colors hover:text-ink xl:inline-flex"
+              href={`mailto:${email}`}
+              className="hidden h-11 items-center gap-2 rounded-full px-3 text-[0.9375rem] font-medium text-ink/85 transition-colors hover:text-ink 2xl:inline-flex"
             >
-              <Phone size={16} weight="bold" aria-hidden="true" />
-              {phone}
+              <EnvelopeSimple size={16} weight="bold" aria-hidden="true" />
+              {email}
             </a>
             <Link href="/contact" className="btn btn-primary hidden !py-3 !text-sm sm:inline-flex">
               Contact us
@@ -227,7 +235,7 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
                               <span className="relative mt-0.5 h-12 w-10 shrink-0 overflow-hidden rounded-xl bg-sunken">
                                 <Image
                                   src={service.image.replace('.webp', '-thumb.webp')}
-                                  alt=""
+                                  alt={`${service.name} service illustration`}
                                   fill
                                   sizes="40px"
                                   className="object-cover"
@@ -268,7 +276,7 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
                     >
                       <Image
                         src={preview.image}
-                        alt=""
+                        alt={`${preview.name} service illustration`}
                         fill
                         sizes="300px"
                         className="object-cover"
@@ -295,8 +303,8 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
               <div className="flex items-center justify-between gap-6 border-t border-hairline px-7 py-4">
                 <p className="text-[0.875rem] text-slate">
                   Help choosing a service:{' '}
-                  <a href={`tel:${phoneHref}`} className="font-semibold text-ink hover:text-accent-text">
-                    {phone}
+                  <a href={`mailto:${email}`} className="font-semibold text-ink hover:text-accent-text">
+                    {email}
                   </a>
                 </p>
                 <Link href="/services" className="link-arrow text-[0.875rem]">
@@ -319,10 +327,20 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35, ease: EASE }}
-            className="night fixed inset-x-3 bottom-3 top-[84px] overflow-y-auto rounded-[28px] border border-hairline-strong bg-[color-mix(in_srgb,var(--panel)_98%,transparent)] p-5 backdrop-blur-2xl lg:hidden"
+            className="mobile-nav-panel night fixed inset-x-3 bottom-3 top-[84px] overflow-y-auto rounded-[28px] border border-hairline-strong bg-[color-mix(in_srgb,var(--panel)_98%,transparent)] p-5 backdrop-blur-2xl lg:hidden"
+            onClick={(event) => { if ((event.target as HTMLElement).closest('a')) closeMobile() }}
             data-lenis-prevent
           >
             <nav aria-label="Primary mobile">
+              <ul className="grid grid-cols-2 gap-2 border-b border-hairline pb-5">
+                {[{ href: '/services', label: 'All services' }, ...LINKS].map((link) => (
+                  <li key={link.href}>
+                    <Link href={link.href} className="flex min-h-12 items-center rounded-2xl border border-hairline px-3 py-2 text-base font-medium text-ink">
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
               {PILLARS.map((pillar) => (
                 <div key={pillar.id} className="border-b border-hairline py-4 first:pt-1">
                   <p className="t-meta text-warm-text">{pillar.name}</p>
@@ -336,7 +354,7 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
                           <span className="relative h-11 w-9 shrink-0 overflow-hidden rounded-lg bg-sunken">
                             <Image
                               src={service.image.replace('.webp', '-thumb.webp')}
-                              alt=""
+                              alt={`${service.name} service illustration`}
                               fill
                               sizes="36px"
                               className="object-cover"
@@ -349,18 +367,6 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
                   </ul>
                 </div>
               ))}
-              <ul className="grid grid-cols-2 gap-2 py-5">
-                {[{ href: '/services', label: 'All services' }, ...LINKS].map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="flex h-12 items-center rounded-2xl border border-hairline px-4 text-[0.9375rem] font-medium text-ink"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
               <div className="mb-5 flex items-center justify-between rounded-2xl border border-hairline px-4 py-2">
                 <span className="text-[0.9375rem] font-medium text-ink">Light mode</span>
                 <ThemeToggle />
@@ -369,9 +375,9 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
                 <Link href="/contact" className="btn btn-primary w-full">
                   Contact us
                 </Link>
-                <a href={`tel:${phoneHref}`} className="btn btn-secondary w-full">
-                  <Phone size={17} weight="bold" aria-hidden="true" />
-                  {phone}
+                <a href={`mailto:${email}`} className="btn btn-secondary w-full">
+                  <EnvelopeSimple size={17} weight="bold" aria-hidden="true" />
+                  {email}
                 </a>
               </div>
             </nav>
@@ -379,5 +385,10 @@ export function Nav({ phone, phoneHref }: { phone: string; phoneHref: string }) 
         ) : null}
       </AnimatePresence>
     </motion.header>
+    <MobileActionBar menuOpen={mobileOpen} onMenuToggle={() => {
+      setHidden(false)
+      setMobileOpen(!mobileOpen)
+    }} onNavigate={closeMobile} />
+    </>
   )
 }

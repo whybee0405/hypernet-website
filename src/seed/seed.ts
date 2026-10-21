@@ -28,7 +28,7 @@ const asset = (name: string) => path.resolve(dirname, 'assets', name)
 const IMAGES: Record<string, { file: string; alt: string }> = {
   heroOwnerCall: {
     file: 'hero-owner-call.jpg',
-    alt: 'A shop owner takes a call on a desk phone at her counter, beside a point of sale terminal',
+    alt: 'Illustration: A shop owner takes a call on a desk phone at her counter, beside a point of sale terminal',
   },
   detailFibrePatch: {
     file: 'detail-fibre-patch.jpg',
@@ -36,75 +36,75 @@ const IMAGES: Record<string, { file: string; alt: string }> = {
   },
   detailDeskPhone: {
     file: 'detail-desk-phone.jpg',
-    alt: 'A hand lifting the handset of a desk phone on a sunlit office desk',
+    alt: 'Illustration: A hand lifting the handset of a desk phone on a sunlit office desk',
   },
   installAccessPoint: {
     file: 'install-access-point.jpg',
-    alt: 'A technician on a ladder mounting a wireless access point under the eaves of a shopfront',
+    alt: 'Illustration: A technician on a ladder mounting a wireless access point under the eaves of a shopfront',
   },
   voipAccountingOffice: {
     file: 'voip-accounting-office.jpg',
-    alt: 'An accountant speaking on a desk phone at a tidy office desk with two monitors',
+    alt: 'Illustration: An accountant speaking on a desk phone at a tidy office desk with two monitors',
   },
   networkCabinet: {
     file: 'network-cabinet.jpg',
-    alt: 'A wall-mounted network cabinet with a router, switch and neatly combed patch cables',
+    alt: 'Illustration: A wall-mounted network cabinet with a router, switch and neatly combed patch cables',
   },
   workshopDashboard: {
     file: 'workshop-dashboard.jpg',
-    alt: 'A laptop on a workshop bench showing a network status dashboard among hand tools',
+    alt: 'Illustration: A laptop on a workshop bench showing a network status dashboard among hand tools',
   },
   caseRetailShop: {
     file: 'case-retail-shop.jpg',
-    alt: 'A shopkeeper serving a customer at a card payment terminal in a busy independent shop',
+    alt: 'Illustration: A shopkeeper serving a customer at a card payment terminal in a busy independent shop',
   },
   caseAccountingOffice: {
     file: 'case-accounting-office.jpg',
-    alt: 'Three people working at desks in a small professional services office with a large window',
+    alt: 'Illustration: Three people working at desks in a small professional services office with a large window',
   },
   caseLogisticsOffice: {
     file: 'case-logistics-office.jpg',
-    alt: 'A dispatcher wearing a headset at a desk with route screens and a handwritten whiteboard',
+    alt: 'Illustration: A dispatcher wearing a headset at a desk with route screens and a handwritten whiteboard',
   },
   teamVanMorning: {
     file: 'team-van-morning.jpg',
-    alt: 'Two field technicians loading cable drums and a ladder into a service van at sunrise',
+    alt: 'Illustration: Two field technicians loading cable drums and a ladder into a service van at sunrise',
   },
   cableLabelling: {
     file: 'cable-labelling.jpg',
-    alt: 'Hands applying a printed label to a network cable in a bundle of combed patch leads',
+    alt: 'Illustration: Hands applying a printed label to a network cable in a bundle of combed patch leads',
   },
   rooftopWireless: {
     file: 'rooftop-wireless.jpg',
-    alt: 'A small wireless antenna mounted on the parapet of a low commercial building',
+    alt: 'Illustration: A small wireless antenna mounted on the parapet of a low commercial building',
   },
   fibreTrench: {
     file: 'fibre-trench.jpg',
-    alt: 'An open pavement trench with orange fibre duct being laid, cones and a worker alongside',
+    alt: 'Illustration: An open pavement trench with orange fibre duct being laid, cones and a worker alongside',
   },
   voipPhonesBench: {
     file: 'voip-phones-bench.jpg',
-    alt: 'Four desk phones lined up on a table being configured, with coiled network cables beside them',
+    alt: 'Illustration: Four desk phones lined up on a table being configured, with coiled network cables beside them',
   },
   supportTeam: {
     file: 'support-team.jpg',
-    alt: 'Three support staff gathered around a monitor showing a network map, one taking notes on a call',
+    alt: 'Illustration: Three support staff gathered around a monitor showing a network map, one taking notes on a call',
   },
   supportTechDesk: {
     file: 'support-tech-desk.jpg',
-    alt: 'A support technician writing on a notepad with a phone handset at their shoulder',
+    alt: 'Illustration: A support technician writing on a notepad with a phone handset at their shoulder',
   },
   ecommercePacking: {
     file: 'ecommerce-packing.jpg',
-    alt: 'A person scanning a parcel barcode at a packing bench beside stacked shipping boxes',
+    alt: 'Illustration: A person scanning a parcel barcode at a packing bench beside stacked shipping boxes',
   },
   routerHandover: {
     file: 'router-handover.jpg',
-    alt: 'Two people at a shop back office counter, one pointing at the indicator lights on a business router',
+    alt: 'Illustration: Two people at a shop back office counter, one pointing at the indicator lights on a business router',
   },
   sectorsShopCounter: {
     file: 'sectors-shop-counter.jpg',
-    alt: 'A shopkeeper handing change to a customer over a hardware shop counter with a card machine beside the till',
+    alt: 'Illustration: A shopkeeper handing change to a customer over a hardware shop counter with a card machine beside the till',
   },
   installCloseUp: {
     file: 'install-close-up.jpg',
@@ -112,7 +112,7 @@ const IMAGES: Record<string, { file: string; alt: string }> = {
   },
   trustPaperworkDesk: {
     file: 'trust-paperwork-desk.jpg',
-    alt: 'Hands turning pages in a lever-arch file of registration paperwork beside an open laptop on an office desk',
+    alt: 'Illustration: Hands turning pages in a lever-arch file of registration paperwork beside an open laptop on an office desk',
   },
 }
 

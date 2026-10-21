@@ -1,5 +1,8 @@
 'use server'
 
+import { redirect } from 'next/navigation'
+import { allowLeadAttempt } from '@/lib/lead-rate-limit'
+
 import { getPayload } from 'payload'
 import config from '@payload-config'
 
@@ -35,9 +38,13 @@ const clean = (value: FormDataEntryValue | null) =>
  * stuff the enquiry list.
  */
 export async function submitLead(_previous: LeadState, formData: FormData): Promise<LeadState> {
+  if (!(await allowLeadAttempt())) {
+    return { status: 'error', message: 'Too many attempts. Please wait a few minutes, or email hello@hypernet.co.za.' }
+  }
+
   // Honeypot. Real people never fill a field they cannot see.
   if (clean(formData.get('company_website'))) {
-    return { status: 'success', message: 'Thanks. We will be in touch.' }
+    redirect('/thank-you')
   }
 
   const name = clean(formData.get('name'))
@@ -50,11 +57,15 @@ export async function submitLead(_previous: LeadState, formData: FormData): Prom
 
   const errors: LeadState['errors'] = {}
 
-  if (name.length < 2) errors.name = 'Please enter your name.'
-  if (!EMAIL_PATTERN.test(email)) errors.email = 'Please enter a valid email address.'
-  if (phone.replace(/\D/g, '').length < 9) errors.phone = 'Please enter a valid phone number.'
+  if (name.length < 2 || name.length > 100) errors.name = 'Please enter your name.'
+  if (email.length > 254 || !EMAIL_PATTERN.test(email)) errors.email = 'Please enter a valid email address.'
+  if (phone.length > 40 || phone.replace(/\D/g, '').length < 9) errors.phone = 'Please enter a valid phone number.'
   if (!INTERESTS.includes(interest as (typeof INTERESTS)[number])) {
     errors.interest = 'Please choose a service.'
+  }
+
+  if (business.length > 200 || message.length > 5000 || source.length > 200) {
+    return { status: 'error', message: 'Please keep the business name under 200 characters and your message under 5,000 characters.' }
   }
 
   if (Object.keys(errors).length > 0) {
@@ -83,16 +94,13 @@ export async function submitLead(_previous: LeadState, formData: FormData): Prom
       overrideAccess: true,
     })
 
-    return {
-      status: 'success',
-      message: 'Thank you. We will call you back on the number you provided.',
-    }
   } catch (error) {
     console.error('Lead submission failed', error)
     return {
       status: 'error',
       message:
-        'Your message could not be sent. Please try again or call us on the number at the top of the page.',
+        'Your message could not be sent. Please try again or email hello@hypernet.co.za.',
     }
   }
+  redirect('/thank-you')
 }

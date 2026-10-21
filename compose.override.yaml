@@ -1,0 +1,21 @@
+services:
+  seed:
+    cpus: 0.60
+    mem_limit: 900m
+    mem_reservation: 256m
+    memswap_limit: 2500m
+    pids_limit: 256
+    environment:
+      NODE_OPTIONS: --max-old-space-size=768
+  web:
+    ports: !override
+      - "127.0.0.1:${HYPERNET_PORT:-3060}:3000"
+    cpus: 0.60
+    mem_limit: 768m
+    mem_reservation: 256m
+    memswap_limit: 1536m
+    pids_limit: 256
+    environment:
+      NODE_OPTIONS: --max-old-space-size=512
+    security_opt:
+      - no-new-privileges:true

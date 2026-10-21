@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowUpRight, Check } from '@phosphor-icons/react/dist/ssr'
 import { PageHero } from '@/components/site/PageHero'
 import { PlanTable } from '@/components/site/PlanTable'
@@ -10,12 +10,7 @@ import { Reveal } from '@/components/site/Reveal'
 import { SERVICES, serviceHref } from '@/content/services'
 import { getPlans, getSiteSettings } from '@/lib/payload'
 
-export const metadata: Metadata = {
-  title: 'Plans and pricing',
-  description:
-    'Connectivity and VoIP plans for South African businesses, with custom designs for larger and multi-site networks.',
-  alternates: { canonical: '/pricing' },
-}
+export const metadata = pageMetadata({ path: '/pricing' })
 
 const HONESTY = [
   {
@@ -101,7 +96,7 @@ export default async function PricingPage() {
               <Reveal key={service.slug} delay={(index % 3) * 0.05}>
                 <Link href={serviceHref(service.slug)} className="card group flex items-center gap-4 p-4 pr-6">
                   <span className="relative h-16 w-14 shrink-0 overflow-hidden rounded-xl bg-sunken">
-                    <Image src={service.image.replace('.webp', '-thumb.webp')} alt="" fill sizes="56px" className="object-cover" />
+                    <Image src={service.image.replace('.webp', '-thumb.webp')} alt={`${service.name} service illustration`} fill sizes="56px" className="object-cover" />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-semibold text-ink">{service.name}</span>
@@ -143,8 +138,8 @@ export default async function PricingPage() {
       <CtaBand
         heading="Request a quote"
         body="Send us your address and the number of phone users, and we will reply with the available options and prices."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

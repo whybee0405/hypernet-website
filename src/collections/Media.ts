@@ -17,6 +17,7 @@ export const Media: CollectionConfig = {
     delete: authenticated,
   },
   upload: {
+    constructorOptions: { limitInputPixels: 40_000_000, animated: false },
     // Resolved relative to source in local development. In a container the
     // path is set explicitly, because this file is bundled into .next and
     // import.meta.url no longer points anywhere useful relative to public/.
@@ -30,7 +31,7 @@ export const Media: CollectionConfig = {
       { name: 'wide', width: 1920, height: undefined },
       { name: 'og', width: 1200, height: 630, position: 'centre' },
     ],
-    mimeTypes: ['image/*'],
+    mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/avif', 'image/gif'],
     focalPoint: true,
   },
   fields: [

@@ -1,0 +1,18 @@
+{
+  "probe": "12 requests to a nonexistent action, no valid enquiry body",
+  "statuses": [
+    400,
+    400,
+    400,
+    400,
+    400,
+    400,
+    429,
+    429,
+    429,
+    429,
+    429,
+    429
+  ],
+  "throttling": "passed"
+}

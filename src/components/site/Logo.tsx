@@ -6,6 +6,6 @@ export function Logo({
   className?: string
 }) {
   return (
-    <span className={cn('brand-logo inline-block shrink-0', className)} aria-hidden="true" />
+    <span className={cn('brand-logo inline-block shrink-0', className)} role="img" aria-label="Hypernet logo" />
   )
 }

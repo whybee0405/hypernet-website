@@ -174,7 +174,7 @@ export function Parallax({
  */
 export function Render({
   src,
-  alt = '',
+  alt = 'Illustration of a managed connectivity service',
   className,
   priority = false,
   sizes = '(max-width: 1024px) 90vw, 45vw',

@@ -105,7 +105,7 @@ export const SERVICES: Service[] = [
     pillar: 'connect',
     image: '/brand/connectivity.webp',
     photo: '/brand/people/svc-connectivity.webp',
-    photoAlt: 'Two Hypernet technicians mounting a fixed-wireless antenna on a rooftop at golden hour',
+    photoAlt: 'Illustration: Two technicians mounting a fixed-wireless antenna on a rooftop at golden hour',
     metaTitle: 'Business internet: fibre, wireless and failover',
     metaDescription:
       'Dedicated business fibre, microwave and fixed-wireless links, and managed SD-WAN for South African businesses, installed and monitored by Hypernet engineers.',
@@ -197,7 +197,7 @@ export const SERVICES: Service[] = [
     pillar: 'connect',
     image: '/brand/cloudpath.webp',
     photo: '/brand/people/svc-cloudpath.webp',
-    photoAlt: 'A retail operations manager checking a laptop beside a network appliance in a store back office',
+    photoAlt: 'Illustration: A retail operations manager checking a laptop beside a network appliance in a store back office',
     metaTitle: 'CloudPath SD-WAN: bonded business connectivity with failover',
     metaDescription:
       'CloudPath bonds fibre, LTE, 5G, satellite and Starlink into one connection with automatic failover that keeps your static IP. Managed by Hypernet.',
@@ -283,7 +283,7 @@ export const SERVICES: Service[] = [
     pillar: 'communicate',
     image: '/brand/voip.webp',
     photo: '/brand/people/svc-voip.webp',
-    photoAlt: 'A receptionist answering a desk phone at a professional practice in Cape Town',
+    photoAlt: 'Illustration: A receptionist answering a desk phone at a professional practice in Cape Town',
     metaTitle: 'Business VoIP phone lines',
     metaDescription:
       'Hosted VoIP lines for South African businesses. Keep your existing numbers, use desk phones or a mobile app, and have call quality monitored with your connection.',
@@ -366,7 +366,7 @@ export const SERVICES: Service[] = [
     pillar: 'communicate',
     image: '/brand/unified-communications.webp',
     photo: '/brand/people/svc-unified-communications.webp',
-    photoAlt: 'Four colleagues in a meeting room on a video call with remote team members',
+    photoAlt: 'Illustration: Four colleagues in a meeting room on a video call with remote team members',
     metaTitle: 'Unified Communications: cloud PBX, video and team chat',
     metaDescription:
       'A carrier-grade cloud PBX with video meetings, team chat and mobile apps that work the same on every device. Set up, migrated and supported by Hypernet.',
@@ -457,7 +457,7 @@ export const SERVICES: Service[] = [
     pillar: 'communicate',
     image: '/brand/contact-centre.webp',
     photo: '/brand/people/svc-contact-centre.webp',
-    photoAlt: 'A customer support team replying to chat messages and calls in a bright office',
+    photoAlt: 'Illustration: A customer support team replying to chat messages and calls in a bright office',
     metaTitle: 'Omni-channel contact centre software',
     metaDescription:
       'One cloud workspace for calls, WhatsApp, email, live chat and social media, with a built-in CRM, live reporting and AI translation. One price per user.',
@@ -543,7 +543,7 @@ export const SERVICES: Service[] = [
     pillar: 'protect',
     image: '/brand/secure-business.webp',
     photo: '/brand/people/svc-secure-business.webp',
-    photoAlt: 'A professional logging in securely from home with a laptop and phone approval',
+    photoAlt: 'Illustration: A professional logging in securely from home with a laptop and phone approval',
     poweredBy: 'Cloudflare',
     metaTitle: 'Secure Business: zero-trust security powered by Cloudflare',
     metaDescription:
@@ -627,7 +627,7 @@ export const SERVICES: Service[] = [
     pillar: 'protect',
     image: '/brand/dragon-guard.webp',
     photo: '/brand/people/svc-dragon-guard.webp',
-    photoAlt: 'A finance officer and colleague checking a suspicious email in the evening',
+    photoAlt: 'Illustration: A finance officer and colleague checking a suspicious email in the evening',
     poweredBy: 'Sendmarc, Sophos and Cloudflare',
     metaTitle: 'Dragon Guard: three-layer cybersecurity',
     metaDescription:
@@ -713,7 +713,7 @@ export const SERVICES: Service[] = [
     pillar: 'automate',
     image: '/brand/integration-suite.webp',
     photo: '/brand/people/svc-integration-suite.webp',
-    photoAlt: 'An operations manager reviewing dashboards with a colleague in a fulfilment warehouse office',
+    photoAlt: 'Illustration: An operations manager reviewing dashboards with a colleague in a fulfilment warehouse office',
     poweredBy: 'Flowgear',
     metaTitle: 'Integration Suite: business system integration',
     metaDescription:

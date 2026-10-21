@@ -1,11 +1,14 @@
 import type { CollectionConfig } from 'payload'
-import { adminsOnly, authenticated } from '../access'
+import { adminsOnly, authenticated, adminOrSelf } from '../access'
 
 export const Users: CollectionConfig = {
   slug: 'users',
   auth: {
+    maxLoginAttempts: 5,
+    lockTime: 15 * 60 * 1000,
     cookies: {
       secure: true,
+      sameSite: 'Lax',
     },
   },
   admin: {
@@ -16,10 +19,16 @@ export const Users: CollectionConfig = {
   access: {
     read: authenticated,
     create: adminsOnly,
-    update: authenticated,
+    update: adminOrSelf,
     delete: adminsOnly,
   },
   fields: [
+    {
+      name: 'email',
+      type: 'email',
+      required: true,
+      access: { read: ({ req, doc }) => req.user?.role === 'admin' || req.user?.id === doc?.id },
+    },
     {
       name: 'name',
       type: 'text',
@@ -35,6 +44,7 @@ export const Users: CollectionConfig = {
         { label: 'Editor', value: 'editor' },
       ],
       access: {
+        create: ({ req }) => req.user?.role === 'admin',
         update: ({ req }) => req.user?.role === 'admin',
       },
     },

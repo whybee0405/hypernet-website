@@ -6,6 +6,7 @@ const nextConfig = {
   // Docker runner stage copies. Harmless outside Docker: `npm start` is
   // unaffected and the normal build output is still produced.
   output: 'standalone',
+  poweredByHeader: false,
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

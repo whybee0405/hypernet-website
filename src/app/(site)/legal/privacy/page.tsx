@@ -1,14 +1,9 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import { PageHero } from '@/components/site/PageHero'
 import { Reveal } from '@/components/site/Reveal'
 import { getSiteSettings } from '@/lib/payload'
 
-export const metadata: Metadata = {
-  title: 'Privacy',
-  description: 'How Hypernet handles the personal information you give us.',
-  alternates: { canonical: '/legal/privacy' },
-  robots: { index: false, follow: true },
-}
+export const metadata = pageMetadata({ path: '/legal/privacy' })
 
 /**
  * PLACEHOLDER. This page states current practice in plain language, but it has
@@ -68,8 +63,7 @@ export default async function PrivacyPage() {
 
             <h2>Corrections and deletion</h2>
             <p>
-              Email <a href={`mailto:${settings.email}`}>{settings.email}</a> or phone{' '}
-              <a href={`tel:${settings.phoneHref}`}>{settings.phone}</a> and ask. You are entitled to
+              Email <a href={`mailto:${settings.email}`}>{settings.email}</a> and ask. You are entitled to
               see what we hold about you, correct it, and in most cases have it deleted.
             </p>
 

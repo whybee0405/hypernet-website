@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight, ArrowUpRight, CheckCircle } from '@phosphor-icons/react/dist/ssr'
 import { CtaBand } from '@/components/site/CtaBand'
 import { Parallax, Render, ScrollLitText, SplitHeading } from '@/components/site/motion'
@@ -15,12 +15,10 @@ import { ServiceModule } from './modules'
  */
 export function ServicePage({
   service,
-  phone,
-  phoneHref,
+  email,
 }: {
   service: Service
-  phone: string
-  phoneHref: string
+  email: string
 }) {
   const related = service.related.map((slug) => SERVICE_BY_SLUG[slug]).filter(Boolean)
 
@@ -182,7 +180,7 @@ export function ServicePage({
                     <span className="relative aspect-[4/5] overflow-hidden rounded-xl bg-sunken">
                       <Image
                         src={item.image.replace('.webp', '-thumb.webp')}
-                        alt=""
+                        alt={`${item.name} service illustration`}
                         fill
                         sizes="88px"
                         className="object-cover transition-transform duration-500 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.06]"
@@ -208,7 +206,7 @@ export function ServicePage({
         </section>
       ) : null}
 
-      <CtaBand heading={service.ctaHeading} body={service.ctaBody} phone={phone} phoneHref={phoneHref} />
+      <CtaBand heading={service.ctaHeading} body={service.ctaBody} email={email} />
     </>
   )
 }

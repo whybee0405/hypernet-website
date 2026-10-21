@@ -1,0 +1,115 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/about",
+      "status": 200
+    },
+    {
+      "path": "/services",
+      "status": 200
+    },
+    {
+      "path": "/pricing",
+      "status": 200
+    },
+    {
+      "path": "/contact",
+      "status": 200
+    },
+    {
+      "path": "/legal/privacy",
+      "status": 200
+    },
+    {
+      "path": "/case-studies",
+      "status": 200
+    },
+    {
+      "path": "/insights",
+      "status": 200
+    },
+    {
+      "path": "/services/connectivity",
+      "status": 200
+    },
+    {
+      "path": "/services/cloudpath",
+      "status": 200
+    },
+    {
+      "path": "/services/voip",
+      "status": 200
+    },
+    {
+      "path": "/services/unified-communications",
+      "status": 200
+    },
+    {
+      "path": "/services/contact-centre",
+      "status": 200
+    },
+    {
+      "path": "/services/secure-business",
+      "status": 200
+    },
+    {
+      "path": "/services/dragon-guard",
+      "status": 200
+    },
+    {
+      "path": "/services/integration-suite",
+      "status": 200
+    },
+    {
+      "path": "/insights/fibre-fixed-wireless-or-lte",
+      "status": 200
+    },
+    {
+      "path": "/insights/what-porting-your-numbers-involves",
+      "status": 200
+    },
+    {
+      "path": "/insights/why-calls-break-up",
+      "status": 200
+    },
+    {
+      "path": "/insights/the-first-five-minutes-of-downtime",
+      "status": 200
+    },
+    {
+      "path": "/insights/load-shedding-and-your-network-cabinet",
+      "status": 200
+    },
+    {
+      "path": "/case-studies/khumalo-hardware-and-paint",
+      "status": 200
+    },
+    {
+      "path": "/case-studies/botha-and-pretorius",
+      "status": 200
+    },
+    {
+      "path": "/case-studies/moyo-freight-coordination",
+      "status": 200
+    },
+    {
+      "path": "/case-studies/sabela-home-goods",
+      "status": 200
+    }
+  ],
+  "checks": [
+    "mobile layouts",
+    "contact validation and length bounds",
+    "successful enquiry and thank-you (test record deleted)",
+    "cross-origin action blocked",
+    "CMS login and cookie flags",
+    "cross-origin cookie auth blocked",
+    "admin dashboard",
+    "preview redirect validation"
+  ],
+  "pageErrors": []
+}

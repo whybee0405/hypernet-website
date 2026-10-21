@@ -1,0 +1,158 @@
+[
+  {
+    "page": "https://hypernet.co.za/",
+    "images": 23,
+    "forms": 0,
+    "modernImages": 4
+  },
+  {
+    "page": "https://hypernet.co.za/about",
+    "images": 7,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services",
+    "images": 9,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/pricing",
+    "images": 7,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/contact",
+    "images": 0,
+    "forms": 1,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/legal/privacy",
+    "images": 0,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/case-studies",
+    "images": 5,
+    "forms": 0,
+    "modernImages": 4
+  },
+  {
+    "page": "https://hypernet.co.za/insights",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 5
+  },
+  {
+    "page": "https://hypernet.co.za/services/connectivity",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/cloudpath",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/voip",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/unified-communications",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/contact-centre",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/secure-business",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/dragon-guard",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/services/integration-suite",
+    "images": 6,
+    "forms": 0,
+    "modernImages": 0
+  },
+  {
+    "page": "https://hypernet.co.za/insights/fibre-fixed-wireless-or-lte",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/insights/what-porting-your-numbers-involves",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/insights/why-calls-break-up",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/insights/the-first-five-minutes-of-downtime",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/insights/load-shedding-and-your-network-cabinet",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/case-studies/khumalo-hardware-and-paint",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/case-studies/botha-and-pretorius",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/case-studies/moyo-freight-coordination",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/case-studies/sabela-home-goods",
+    "images": 4,
+    "forms": 0,
+    "modernImages": 3
+  },
+  {
+    "page": "https://hypernet.co.za/thank-you",
+    "images": 0,
+    "forms": 0,
+    "modernImages": 0
+  }
+]

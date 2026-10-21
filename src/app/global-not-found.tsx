@@ -1,14 +1,15 @@
+import { RecoveryLinks } from '@/components/site/RecoveryLinks'
 import type { Metadata } from 'next'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { Archivo, Instrument_Sans } from 'next/font/google'
 import { Logo } from '@/components/site/Logo'
+import { MobileActionBar } from '@/components/site/MobileActionBar'
 import './(site)/globals.css'
 
 /**
  * 404 for URLs that match no route at all. The app has two root layouts (the
  * site and the Payload admin), so there is no single layout for a normal
- * not-found.tsx to render inside; this page ships its own document. It is
- * deliberately static: no CMS query, no client JavaScript.
+ * not-found.tsx to render inside; this page ships its own document. It does not depend on a CMS query, so recovery works when content is unavailable.
  */
 
 const archivo = Archivo({ subsets: ['latin'], variable: '--font-archivo', display: 'swap' })
@@ -36,16 +37,10 @@ export default function GlobalNotFound() {
             <p className="t-lead mt-7">
               The link may be out of date or mistyped. Use the links below to continue.
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <Link href="/" className="btn btn-primary">
-                Back to the homepage
-              </Link>
-              <Link href="/services" className="btn btn-secondary">
-                View services
-              </Link>
-            </div>
+            <RecoveryLinks />
           </div>
         </main>
+        <MobileActionBar />
       </body>
     </html>
   )

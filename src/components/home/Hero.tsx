@@ -1,6 +1,6 @@
 'use client'
 
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { useRef } from 'react'
 import { motion, useScroll, useTransform } from 'motion/react'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
@@ -50,7 +50,7 @@ export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src="/brand/hero-signal-high.webp"
-            alt=""
+            alt="Blue and coral light trails forming a speech bubble"
             fetchPriority="high"
             className="absolute inset-0 h-full w-full object-cover object-[72%_50%]"
           />

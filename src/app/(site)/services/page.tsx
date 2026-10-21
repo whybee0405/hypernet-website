@@ -1,6 +1,6 @@
-import type { Metadata } from 'next'
+import { pageMetadata } from '@/lib/seo'
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 import { CtaBand } from '@/components/site/CtaBand'
 import { PageHero } from '@/components/site/PageHero'
@@ -9,12 +9,7 @@ import { Reveal } from '@/components/site/Reveal'
 import { PILLARS, SERVICE_BY_SLUG, serviceHref, servicesInPillar } from '@/content/services'
 import { getSiteSettings } from '@/lib/payload'
 
-export const metadata: Metadata = {
-  title: 'Services',
-  description:
-    'Business internet, CloudPath SD-WAN, VoIP, unified communications, omni-channel contact centre, Secure Business, Dragon Guard and Integration Suite, managed and supported by Hypernet.',
-  alternates: { canonical: '/services' },
-}
+export const metadata = pageMetadata({ path: '/services' })
 
 /** Common problems mapped to the services that solve them. */
 const SYMPTOMS = [
@@ -70,7 +65,7 @@ export default async function ServicesIndexPage() {
                       >
                         <Image
                           src={service.image}
-                          alt=""
+                          alt={`${service.name} service illustration`}
                           fill
                           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 40vw"
                           className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.05]"
@@ -140,8 +135,8 @@ export default async function ServicesIndexPage() {
       <CtaBand
         heading="Help choosing a service"
         body="Tell us the problem you want to solve and we will recommend the right service."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

@@ -21,7 +21,7 @@ export async function GET(request: Request) {
   }
 
   // Only same-origin relative paths. Prevents this being used as an open redirect.
-  if (!path || !path.startsWith('/') || path.startsWith('//')) {
+  if (!path || !path.startsWith('/') || path.startsWith('//') || /[\\\x00-\x20\x7f]/.test(path) || /%(?:2f|5c|0[0-9a-f]|1[0-9a-f]|20|7f)/i.test(path)) {
     return new Response('Invalid preview path.', { status: 400 })
   }
 

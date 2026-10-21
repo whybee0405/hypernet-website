@@ -1,8 +1,9 @@
 'use client'
 
-import { useActionState, useId } from 'react'
+import { useActionState, useEffect, useId, useRef, useState, type Dispatch, type SetStateAction } from 'react'
+import AsyncBoundary from './AsyncBoundary'
 import { useFormStatus } from 'react-dom'
-import { ArrowRight, CheckCircle, WarningCircle } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, WarningCircle } from '@phosphor-icons/react/dist/ssr'
 import { submitLead, type LeadState } from '@/actions/lead'
 
 const INITIAL: LeadState = { status: 'idle' }
@@ -24,21 +25,31 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={pending}>
-      {pending ? 'Sending' : 'Send message'}
+    <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={pending} aria-busy={pending} aria-label={pending ? 'Sending…' : 'Send message'}>
+      <span>{pending ? 'Sending…' : 'Send message'}</span>
       {pending ? null : <ArrowRight size={17} weight="bold" aria-hidden="true" />}
     </button>
   )
 }
 
-export function ContactForm({
-  source,
-  defaultInterest = 'both',
-}: {
+export function ContactForm({ source, defaultInterest = 'both' }: { source: string; defaultInterest?: string }) {
+  const [values, setValues] = useState<Record<string, string>>({})
+  return <AsyncBoundary title="We could not confirm your enquiry was saved" message="Check your connection and try again. Your details are kept on this page.">
+    <ContactFormBody source={source} defaultInterest={defaultInterest} values={values} setValues={setValues} />
+  </AsyncBoundary>
+}
+
+function ContactFormBody({ source, defaultInterest, values, setValues }: {
   source: string
-  defaultInterest?: string
+  defaultInterest: string
+  values: Record<string, string>
+  setValues: Dispatch<SetStateAction<Record<string, string>>>
 }) {
-  const [state, formAction] = useActionState(submitLead, INITIAL)
+  const [state, formAction, pending] = useActionState(submitLead, INITIAL)
+  const summary = useRef<HTMLParagraphElement>(null)
+  useEffect(() => {
+    if (state.status === 'error') summary.current?.focus()
+  }, [state])
   const ids = {
     name: useId(),
     business: useId(),
@@ -48,21 +59,11 @@ export function ContactForm({
     message: useId(),
   }
 
-  if (state.status === 'success') {
-    return (
-      <div className="card p-8 sm:p-10">
-        <CheckCircle size={30} weight="fill" aria-hidden="true" className="text-[#3ee089]" />
-        <h2 className="t-card mt-5 text-ink">Message sent</h2>
-        <p className="pretty mt-3 max-w-[48ch] text-[0.9375rem] leading-relaxed text-slate">
-          {state.message}
-        </p>
-      </div>
-    )
-  }
 
   return (
     <form
       action={formAction}
+      aria-busy={pending}
       noValidate
       className="card relative p-7 sm:p-10"
     >
@@ -77,6 +78,8 @@ export function ContactForm({
       {state.status === 'error' && state.message ? (
         <p
           role="alert"
+          ref={summary}
+          tabIndex={-1}
           className="mb-7 flex items-start gap-2.5 rounded-input bg-warm-soft px-4 py-3 text-[0.875rem] font-medium text-warm-text"
         >
           <WarningCircle size={18} weight="bold" aria-hidden="true" className="mt-px shrink-0" />
@@ -92,6 +95,8 @@ export function ContactForm({
           <input
             id={ids.name}
             name="name"
+            value={values.name || ''}
+            onChange={(event) => setValues((current) => ({ ...current, name: event.target.value }))}
             type="text"
             autoComplete="name"
             required
@@ -113,6 +118,8 @@ export function ContactForm({
           <input
             id={ids.business}
             name="business"
+            value={values.business || ''}
+            onChange={(event) => setValues((current) => ({ ...current, business: event.target.value }))}
             type="text"
             autoComplete="organization"
             className="field-input"
@@ -127,6 +134,8 @@ export function ContactForm({
           <input
             id={ids.email}
             name="email"
+            value={values.email || ''}
+            onChange={(event) => setValues((current) => ({ ...current, email: event.target.value }))}
             type="email"
             autoComplete="email"
             required
@@ -148,6 +157,8 @@ export function ContactForm({
           <input
             id={ids.phone}
             name="phone"
+            value={values.phone || ''}
+            onChange={(event) => setValues((current) => ({ ...current, phone: event.target.value }))}
             type="tel"
             autoComplete="tel"
             required
@@ -163,7 +174,7 @@ export function ContactForm({
             </p>
           ) : (
             <p id={`${ids.phone}-help`} className="field-help">
-              We will call you on this number.
+              A number we can use if a call is needed.
             </p>
           )}
         </div>
@@ -175,11 +186,13 @@ export function ContactForm({
           <select
             id={ids.interest}
             name="interest"
-            defaultValue={
+            onChange={(event) => setValues((current) => ({ ...current, interest: event.target.value }))}
+            value={values.interest || (
               INTERESTS.some((option) => option.value === defaultInterest) ? defaultInterest : 'both'
-            }
+            )}
             className="field-input"
             aria-invalid={Boolean(state.errors?.interest)}
+            aria-describedby={state.errors?.interest ? `${ids.interest}-error` : undefined}
           >
             {INTERESTS.map((option) => (
               <option key={option.value} value={option.value}>
@@ -188,7 +201,7 @@ export function ContactForm({
             ))}
           </select>
           {state.errors?.interest ? (
-            <p className="field-error">{state.errors.interest}</p>
+            <p id={`${ids.interest}-error`} className="field-error">{state.errors.interest}</p>
           ) : null}
         </div>
 
@@ -196,7 +209,7 @@ export function ContactForm({
           <label htmlFor={ids.message} className="field-label">
             Message
           </label>
-          <textarea id={ids.message} name="message" rows={5} className="field-input resize-y" />
+          <textarea value={values.message || ''} onChange={(event) => setValues((current) => ({ ...current, message: event.target.value }))} id={ids.message} name="message" rows={5} className="field-input resize-y" />
           <p className="field-help">
             Include your address if you need connectivity. We use it to check availability.
           </p>

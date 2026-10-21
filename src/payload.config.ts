@@ -24,7 +24,15 @@ import { HomePage } from './globals/HomePage'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+const serverURL = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
+const secret = process.env.PAYLOAD_SECRET
+if (process.env.NODE_ENV === 'production' && !secret) {
+  throw new Error('PAYLOAD_SECRET is required in production')
+}
+
 export default buildConfig({
+  cors: [serverURL],
+  csrf: [serverURL],
   admin: {
     user: Users.slug,
     meta: {
@@ -85,16 +93,17 @@ export default buildConfig({
     // after any collection or global change.
     push: process.env.NODE_ENV !== 'production',
   }),
-  secret: process.env.PAYLOAD_SECRET || 'hypernet-dev-secret-change-me',
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000',
+  secret: secret || 'hypernet-local-development-only',
+  serverURL,
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   sharp,
   graphQL: {
-    disable: false,
+    disable: true,
   },
   upload: {
+    requestSizeLimit: 20_000_000,
     limits: { fileSize: 12_000_000 },
   },
 })

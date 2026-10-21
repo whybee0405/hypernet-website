@@ -30,3 +30,11 @@ CLAUDE.md
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store
+
+compose.override.yaml
+ops
+.deploy.lock
+DEPLOYMENT.md
+
+# Audit evidence is retained on the host, not in production build layers.
+docs

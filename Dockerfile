@@ -9,7 +9,8 @@ ARG NODE_VERSION=22-slim
 FROM node:${NODE_VERSION} AS base
 
 WORKDIR /app
-ENV NEXT_TELEMETRY_DISABLED=1
+ARG NODE_OPTIONS=--max-old-space-size=1536
+ENV NEXT_TELEMETRY_DISABLED=1 NODE_OPTIONS=${NODE_OPTIONS}
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends ca-certificates \

@@ -65,7 +65,8 @@ function renderNodes(nodes: LexicalNode[] | undefined): React.ReactNode {
       }
 
       case 'heading': {
-        const Tag = (node.tag ?? 'h2') as 'h2' | 'h3' | 'h4'
+        // Treat stored editor JSON as untrusted: a type assertion is not validation.
+        const Tag = (['h2', 'h3', 'h4'].includes(node.tag || '') ? node.tag : 'h2') as 'h2' | 'h3' | 'h4'
         return <Tag key={index}>{renderNodes(node.children)}</Tag>
       }
 
@@ -86,7 +87,9 @@ function renderNodes(nodes: LexicalNode[] | undefined): React.ReactNode {
       case 'link':
       case 'autolink': {
         const fields = (node.fields ?? {}) as { url?: string; newTab?: boolean }
-        const href = fields.url ?? node.url ?? '#'
+        const rawURL = fields.url ?? node.url
+        const candidate = typeof rawURL === 'string' ? rawURL.trim() : '#'
+        const href = /^(?:https?:|mailto:|tel:|#|\/(?![\\/]))/i.test(candidate) && !/[\\\x00-\x1f\x7f]/.test(candidate) ? candidate : '#'
         return (
           <a
             key={index}

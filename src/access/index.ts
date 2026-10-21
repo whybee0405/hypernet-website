@@ -25,3 +25,10 @@ export const adminFieldAccess: FieldAccess = ({ req }) => req.user?.role === 'ad
 
 /** Collection-level: only admins. */
 export const adminsOnly: Access = ({ req }) => req.user?.role === 'admin'
+
+/** Editors may change their own account, never another account. */
+export const adminOrSelf: Access = ({ req }) => {
+  if (req.user?.role === 'admin') return true
+  if (!req.user) return false
+  return { id: { equals: req.user.id } }
+}

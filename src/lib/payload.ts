@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL, COMPANY_ADDRESS } from './contact'
 import 'server-only'
 import { cache } from 'react'
 import { getPayload, type Where } from 'payload'
@@ -20,7 +21,13 @@ export const getClient = cache(async () => getPayload({ config }))
 
 export const getSiteSettings = cache(async (): Promise<SiteSetting> => {
   const payload = await getClient()
-  return payload.findGlobal({ slug: 'site-settings', depth: 1 })
+  const settings = await payload.findGlobal({ slug: 'site-settings', depth: 1 })
+  return {
+    ...settings,
+    email: CONTACT_EMAIL,
+    whatsapp: null,
+    addressLines: COMPANY_ADDRESS.map((line) => ({ line })),
+  }
 })
 
 export const getHomePage = cache(async (): Promise<HomePage> => {

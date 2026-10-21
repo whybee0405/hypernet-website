@@ -1,0 +1,76 @@
+{
+  "headers": "passed",
+  "requests": [
+    {
+      "path": "/",
+      "method": "GET",
+      "status": 200
+    },
+    {
+      "path": "/api/users",
+      "method": "GET",
+      "status": 403
+    },
+    {
+      "path": "/api/leads",
+      "method": "GET",
+      "status": 403
+    },
+    {
+      "path": "/.env",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/.git/config",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/hypernet.db",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/graphql",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/graphql-playground",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/next/preview",
+      "method": "GET",
+      "status": 403
+    },
+    {
+      "path": "/security-missing-page",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/services/security-missing-page",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/optimized-media/missing-test.jpg.webp",
+      "method": "GET",
+      "status": 404
+    },
+    {
+      "path": "/api/leads",
+      "method": "POST",
+      "status": 403
+    },
+    {
+      "path": "/optimized-media/fibre-trench.jpg.webp",
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "optimizedImageBytes": 177294
+}

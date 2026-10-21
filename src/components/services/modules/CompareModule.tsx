@@ -46,7 +46,18 @@ export function CompareModule() {
         </div>
 
         <Reveal className="mt-14 lg:mt-20">
-          <div className="card overflow-x-auto" data-lenis-prevent-wheel>
+          <dl className="grid gap-4 sm:hidden">
+            {ROWS.map((row) => (
+              <div key={row.label} className="card p-5">
+                <dt className="font-semibold text-ink">{row.label}</dt>
+                <dd className="mt-4 grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-4 border-t border-hairline pt-4">
+                  <div><p className="mb-2 font-semibold text-accent-text">Hypernet UC</p><Cell value={row.ours} strong /></div>
+                  <div><p className="mb-2 text-slate">Typical hosted PBX</p><Cell value={row.typical} /></div>
+                </dd>
+              </div>
+            ))}
+          </dl>
+          <div className="card hidden overflow-x-auto sm:block" data-lenis-prevent-wheel>
             <table className="w-full min-w-[620px] border-collapse text-left">
               <caption className="sr-only">Hypernet Unified Communications compared with a typical hosted PBX</caption>
               <thead>

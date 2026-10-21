@@ -1,0 +1,245 @@
+[
+  {
+    "path": "/",
+    "beforeSmallText": 145,
+    "beforeSmallTargets": 21,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/about",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services",
+    "beforeSmallText": 55,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/pricing",
+    "beforeSmallText": 81,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/contact",
+    "beforeSmallText": 48,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/legal/privacy",
+    "beforeSmallText": 30,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/case-studies",
+    "beforeSmallText": 48,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights",
+    "beforeSmallText": 52,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/connectivity",
+    "beforeSmallText": 53,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/cloudpath",
+    "beforeSmallText": 61,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/voip",
+    "beforeSmallText": 53,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/unified-communications",
+    "beforeSmallText": 75,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/contact-centre",
+    "beforeSmallText": 56,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/secure-business",
+    "beforeSmallText": 62,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/dragon-guard",
+    "beforeSmallText": 60,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/services/integration-suite",
+    "beforeSmallText": 70,
+    "beforeSmallTargets": 19,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/fibre-fixed-wireless-or-lte",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/what-porting-your-numbers-involves",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/why-calls-break-up",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/the-first-five-minutes-of-downtime",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/load-shedding-and-your-network-cabinet",
+    "beforeSmallText": 41,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/case-studies/khumalo-hardware-and-paint",
+    "beforeSmallText": 49,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/case-studies/botha-and-pretorius",
+    "beforeSmallText": 49,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/case-studies/moyo-freight-coordination",
+    "beforeSmallText": 48,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/case-studies/sabela-home-goods",
+    "beforeSmallText": 48,
+    "beforeSmallTargets": 18,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/mobile-audit-missing",
+    "beforeSmallText": 2,
+    "beforeSmallTargets": 1,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  },
+  {
+    "path": "/insights/mobile-audit-missing",
+    "beforeSmallText": 31,
+    "beforeSmallTargets": 17,
+    "afterSmallText": 0,
+    "afterSmallTargets": 0,
+    "afterScrollWidth": 390,
+    "afterHorizontalScrollRegions": 0
+  }
+]

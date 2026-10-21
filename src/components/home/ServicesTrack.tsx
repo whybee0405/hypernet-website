@@ -1,7 +1,7 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { useLayoutEffect, useRef, useState } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'motion/react'
 import { ArrowRight, ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
@@ -57,7 +57,7 @@ export function ServicesTrack() {
         <motion.div
           ref={trackRef}
           style={{ x: pinned ? x : 0 }}
-          className="flex w-max items-stretch gap-5 px-5 max-lg:w-auto max-lg:snap-x max-lg:snap-mandatory max-lg:overflow-x-auto max-lg:pb-6 sm:px-8 lg:gap-6 lg:px-14"
+          className="mobile-services-track flex w-max items-stretch gap-5 px-5 max-lg:w-auto max-lg:snap-x max-lg:snap-mandatory max-lg:overflow-x-auto max-lg:pb-6 sm:px-8 lg:gap-6 lg:px-14"
         >
           {/* Intro panel */}
           <div className="flex w-[82vw] shrink-0 snap-start flex-col justify-between pr-6 sm:w-[60vw] lg:w-[38vw] lg:max-w-[560px]">
@@ -92,7 +92,7 @@ export function ServicesTrack() {
               <div className="relative flex-1 overflow-hidden">
                 <Image
                   src={service.image}
-                  alt=""
+                  alt={`${service.name} service illustration`}
                   fill
                   sizes="(max-width: 1024px) 78vw, 400px"
                   className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-[1.05]"
@@ -124,7 +124,7 @@ export function ServicesTrack() {
               Choosing a service
             </p>
             <p className="mt-4 text-[0.9375rem] leading-relaxed text-slate">
-              Call us with the problem you want to solve and we will recommend where to start.
+              Contact us with the problem you want to solve and we will recommend where to start.
             </p>
             <Link href="/services" className="link-arrow mt-6">
               View services

@@ -1,6 +1,7 @@
-import type { Metadata } from 'next'
+import AsyncBoundary from '@/components/site/AsyncBoundary'
+import { pageMetadata } from '@/lib/seo'
 import { Suspense } from 'react'
-import Link from 'next/link'
+import Link from '@/components/site/SiteLink'
 import { ArrowRight } from '@phosphor-icons/react/dist/ssr'
 import { Hero } from '@/components/home/Hero'
 import { Manifesto } from '@/components/home/Manifesto'
@@ -21,12 +22,7 @@ import { PlanTable } from '@/components/site/PlanTable'
 import { CtaBand } from '@/components/site/CtaBand'
 import { getHomePage, getPlans, getSiteSettings, getTestimonials } from '@/lib/payload'
 
-export const metadata: Metadata = {
-  title: 'Hypernet | Connectivity with a Human Voice',
-  description:
-    'Business internet, VoIP, unified communications, contact centre, cybersecurity and system integration for South African businesses, from single sites to national branch networks.',
-  alternates: { canonical: '/' },
-}
+export const metadata = pageMetadata({ path: '/' })
 
 export default async function HomePage() {
   const [home, settings, testimonials, plans] = await Promise.all([
@@ -61,7 +57,7 @@ export default async function HomePage() {
       <ProofBento heading={home.proofHeading} points={home.proofPoints ?? []} />
 
       <Suspense fallback={<RailSkeleton />}>
-        <DeferredCaseStudies />
+        <AsyncBoundary title="Case studies unavailable"><DeferredCaseStudies /></AsyncBoundary>
       </Suspense>
 
       <PlanFinder plans={plans} />
@@ -86,14 +82,14 @@ export default async function HomePage() {
       <TestimonialPanel testimonial={testimonials[0]} />
 
       <Suspense fallback={<InsightsSkeleton />}>
-        <DeferredInsights />
+        <AsyncBoundary title="Insights unavailable"><DeferredInsights /></AsyncBoundary>
       </Suspense>
 
       <CtaBand
         heading={home.ctaHeading}
         body={home.ctaBody}
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

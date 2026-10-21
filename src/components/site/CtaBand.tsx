@@ -1,23 +1,21 @@
 import Image from 'next/image'
-import Link from 'next/link'
-import { ArrowRight, Phone } from '@phosphor-icons/react/dist/ssr'
+import Link from '@/components/site/SiteLink'
+import { ArrowRight, EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
 import { Parallax, SplitHeading } from './motion'
 import { Reveal } from './Reveal'
 
 /**
  * Closing band on every page. The night city sits behind on a slow parallax,
- * and the phone number is set large because calling is the main action.
+ * and the confirmed email address provides a direct contact route.
  */
 export function CtaBand({
   heading,
   body,
-  phone,
-  phoneHref,
+  email,
 }: {
   heading: string
   body: string
-  phone: string
-  phoneHref: string
+  email: string
 }) {
   return (
     <section className="stay-dark relative isolate overflow-hidden border-t border-hairline">
@@ -25,7 +23,7 @@ export function CtaBand({
         <Parallax offset={70} className="absolute inset-x-0 -inset-y-24">
           <Image
             src="/brand/city-night.webp"
-            alt=""
+            alt="City skyline illuminated at night"
             fill
             sizes="100vw"
             className="object-cover object-bottom opacity-55"
@@ -49,15 +47,15 @@ export function CtaBand({
 
           <Reveal delay={0.15} className="lg:col-span-5">
             <div className="card p-7 sm:p-8">
-              <p className="t-meta text-slate">Call the office</p>
+              <p className="t-meta text-slate">Email Hypernet</p>
               <a
-                href={`tel:${phoneHref}`}
-                className="mt-3 flex items-center gap-3 font-display text-[clamp(2rem,3.4vw,2.75rem)] font-bold tracking-[-0.045em] text-ink transition-colors hover:text-accent-text"
+                href={`mailto:${email}`}
+                className="mt-3 flex break-all items-center gap-3 font-display text-[clamp(1rem,2vw,1.5rem)] font-bold tracking-[-0.045em] text-ink transition-colors hover:text-accent-text"
               >
-                <Phone size={30} weight="duotone" aria-hidden="true" className="text-warm" />
-                {phone}
+                <EnvelopeSimple size={30} weight="duotone" aria-hidden="true" className="text-warm" />
+                {email}
               </a>
-              <p className="mt-2 text-[0.875rem] text-slate">Our service desk answers during business hours.</p>
+              <p className="mt-2 text-[0.875rem] text-slate">Send your questions to our team.</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact" className="btn btn-primary flex-1">
                   Contact us

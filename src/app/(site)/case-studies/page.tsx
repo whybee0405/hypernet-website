@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import { pageMetadata } from '@/lib/seo'
+import Link from '@/components/site/SiteLink'
 import { ArrowUpRight } from '@phosphor-icons/react/dist/ssr'
 import { CtaBand } from '@/components/site/CtaBand'
 import { Duotone } from '@/components/site/Duotone'
@@ -8,12 +8,7 @@ import { Reveal } from '@/components/site/Reveal'
 import { getCaseStudies, getSiteSettings } from '@/lib/payload'
 import { SECTOR_LABELS, cn, mediaAlt, mediaUrl } from '@/lib/utils'
 
-export const metadata: Metadata = {
-  title: 'Case studies',
-  description:
-    'Hypernet installations for South African businesses: the problem, the approach and the result.',
-  alternates: { canonical: '/case-studies' },
-}
+export const metadata = pageMetadata({ path: '/case-studies' })
 
 export default async function CaseStudiesPage() {
   const [caseStudies, settings] = await Promise.all([getCaseStudies({ limit: 30 }), getSiteSettings()])
@@ -88,8 +83,8 @@ export default async function CaseStudiesPage() {
       <CtaBand
         heading="Discuss your setup"
         body="Describe the problem and we will tell you whether we have solved something similar before."
-        phone={settings.phone}
-        phoneHref={settings.phoneHref}
+        email={settings.email}
+
       />
     </>
   )

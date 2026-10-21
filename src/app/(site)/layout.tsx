@@ -1,3 +1,4 @@
+import { pageMetadata, SITE_URL } from '@/lib/seo'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Instrument_Sans, Spline_Sans_Mono } from 'next/font/google'
 import { Nav } from '@/components/site/Nav'
@@ -29,22 +30,17 @@ const technicalMono = Spline_Sans_Mono({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3000'
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
-  title: {
-    default: 'Hypernet | Connectivity with a Human Voice',
-    template: '%s | Hypernet',
-  },
-  description:
-    'Business internet, VoIP, unified communications, contact centre, cybersecurity and integration for South African businesses, designed, installed and supported by Hypernet.',
-  openGraph: {
-    type: 'website',
-    locale: 'en_ZA',
-    siteName: 'Hypernet',
-    url: siteUrl,
-    images: [{ url: '/brand/hero-signal-high.webp', width: 2560, height: 1430 }],
+  ...pageMetadata({ path: '/' }),
+  metadataBase: new URL(SITE_URL),
+  manifest: '/manifest.webmanifest',
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   robots: { index: true, follow: true },
 }
@@ -82,10 +78,10 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
 
         <MotionProvider>
           <SmoothScroll />
-          <Nav phone={settings.phone} phoneHref={settings.phoneHref} />
+          <Nav email={settings.email}  />
           <main id="main">{children}</main>
           <Footer settings={settings} />
-          <WhatsAppButton href={settings.whatsapp} />
+          <WhatsAppButton />
         </MotionProvider>
       </body>
     </html>

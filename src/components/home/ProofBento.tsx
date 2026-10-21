@@ -27,7 +27,7 @@ export function ProofBento({ heading, points }: { heading: string; points: Point
             <article className="stay-dark relative flex h-full min-h-[440px] flex-col justify-end overflow-hidden rounded-card p-8 lg:p-10">
               <Image
                 src="/brand/people/team-service-desk.webp"
-                alt="Hypernet service desk agents working at their desks in the Sandton office at dusk"
+                alt="Illustration of service desk agents working at their desks at dusk"
                 fill
                 sizes="(max-width: 1024px) 100vw, 48vw"
                 className="object-cover object-[50%_40%]"
@@ -59,14 +59,14 @@ export function ProofBento({ heading, points }: { heading: string; points: Point
                   <div aria-hidden="true" className="absolute inset-y-0 right-0 w-[45%]">
                     <Image
                       src="/brand/connectivity.webp"
-                      alt=""
+                      alt="Business connectivity network illustration"
                       fill
                       sizes="(max-width: 1024px) 45vw, 22vw"
                       className="render-mask object-cover opacity-80"
                     />
                   </div>
                 ) : null}
-                <div className={cn('relative', index === 0 ? 'max-w-[55%]' : 'max-w-[40ch]')}>
+                <div className={cn('relative', index === 0 ? 'sm:max-w-[55%]' : 'max-w-[40ch]')}>
                   <h3 className="t-card text-ink">{point.title}</h3>
                   <p className="pretty mt-3 text-[0.9375rem] leading-relaxed text-slate">{point.body}</p>
                 </div>
