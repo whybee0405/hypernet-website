@@ -4,6 +4,7 @@ import { ContactForm } from '@/components/site/ContactForm'
 import { SplitHeading } from '@/components/site/motion'
 import { Reveal } from '@/components/site/Reveal'
 import { getSiteSettings } from '@/lib/payload'
+import { TrackedWhatsAppLink } from '@/components/analytics/TrackedWhatsAppLink'
 
 export const metadata = pageMetadata({ path: '/contact' })
 
@@ -55,9 +56,9 @@ export default async function ContactPage({ searchParams }: Props) {
                     <div>
                       <dt className="t-meta text-slate">WhatsApp</dt>
                       <dd className="mt-1">
-                        <a href={settings.whatsapp} className="text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent-text">
+                        <TrackedWhatsAppLink href={settings.whatsapp} placement="contact-page" className="text-[1.0625rem] font-medium text-ink transition-colors hover:text-accent-text">
                           Message us
-                        </a>
+                        </TrackedWhatsAppLink>
                       </dd>
                     </div>
                   </div>

@@ -67,10 +67,19 @@ export default async function PrivacyPage() {
               see what we hold about you, correct it, and in most cases have it deleted.
             </p>
 
-            <h2>Cookies</h2>
+            <h2>Site analytics</h2>
             <p>
-              This site does not set advertising or tracking cookies. If analytics are added later,
-              this page will be updated before they go live.
+              We use first-party analytics to understand which pages are visited, how long they are
+              viewed, which links bring visitors here, and whether visitors send an enquiry or click
+              a WhatsApp link. The report records the page path and the referring site origin, but
+              no search terms or referring page path. A random session ID is kept in your browser's
+              session storage for the current tab. We do not set an analytics cookie.
+            </p>
+            <p>
+              Your IP address and browser information are used to make a daily rotating hash for
+              approximate visitor counts and abuse prevention. The raw IP address is not stored in
+              the analytics database. Events older than 14 months are cleared as new events arrive.
+              You can clear or block session storage in your browser settings.
             </p>
           </div>
         </Reveal>

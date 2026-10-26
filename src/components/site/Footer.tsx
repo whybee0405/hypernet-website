@@ -3,6 +3,7 @@ import { EnvelopeSimple, Phone, WhatsappLogo } from '@phosphor-icons/react/dist/
 import { Logo } from './Logo'
 import { PILLARS, serviceHref, servicesInPillar } from '@/content/services'
 import type { SiteSetting } from '@/payload-types'
+import { TrackedWhatsAppLink } from '@/components/analytics/TrackedWhatsAppLink'
 
 const COMPANY = [
   { href: '/services', label: 'All services' },
@@ -38,13 +39,14 @@ export function Footer({ settings }: { settings: SiteSetting }) {
                 {settings.email}
               </a>
               {settings.whatsapp ? (
-                <a
+                <TrackedWhatsAppLink
                   href={settings.whatsapp}
+                  placement="footer"
                   className="inline-flex min-h-6 items-center gap-3 text-[0.9375rem] text-ink/85 transition-colors hover:text-accent-text"
                 >
                   <WhatsappLogo size={18} aria-hidden="true" />
                   WhatsApp us
-                </a>
+                </TrackedWhatsAppLink>
               ) : null}
             </div>
           </div>

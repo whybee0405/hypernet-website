@@ -18,6 +18,7 @@ import { CaseStudies } from './collections/CaseStudies'
 import { Plans } from './collections/Plans'
 import { Testimonials } from './collections/Testimonials'
 import { Leads } from './collections/Leads'
+import { AnalyticsEvents } from './collections/AnalyticsEvents'
 import { SiteSettings } from './globals/SiteSettings'
 import { HomePage } from './globals/HomePage'
 
@@ -43,6 +44,14 @@ export default buildConfig({
       ],
     },
     components: {
+      beforeDashboard: ['@/components/analytics/AnalyticsDashboard#AnalyticsDashboard'],
+      afterNavLinks: ['@/components/analytics/AnalyticsNavLink#AnalyticsNavLink'],
+      views: {
+        analytics: {
+          Component: '@/components/analytics/AnalyticsView#AnalyticsView',
+          path: '/analytics',
+        },
+      },
       graphics: {
         Icon: '/components/payload/HypernetIcon',
         Logo: '/components/payload/HypernetLogo',
@@ -52,7 +61,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  collections: [Posts, CaseStudies, Plans, Testimonials, Media, Users, Leads],
+  collections: [Posts, CaseStudies, Plans, Testimonials, Media, Users, Leads, AnalyticsEvents],
   globals: [HomePage, SiteSettings],
   editor: lexicalEditor({
     features: ({ defaultFeatures }) => [
@@ -103,7 +112,7 @@ export default buildConfig({
     disable: true,
   },
   upload: {
-    requestSizeLimit: 20_000_000,
+    abortOnLimit: true,
     limits: { fileSize: 12_000_000 },
   },
 })

@@ -74,6 +74,7 @@ export interface Config {
     media: Media;
     users: User;
     leads: Lead;
+    'analytics-events': AnalyticsEvent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -88,6 +89,7 @@ export interface Config {
     media: MediaSelect<false> | MediaSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
+    'analytics-events': AnalyticsEventsSelect<false> | AnalyticsEventsSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -281,7 +283,6 @@ export interface User {
   resetPasswordExpiration?: string | null;
   salt?: string | null;
   hash?: string | null;
-  resetPasswordRequestedAt?: string | null;
   loginAttempts?: number | null;
   lockUntil?: string | null;
   sessions?:
@@ -513,6 +514,36 @@ export interface Lead {
   createdAt: string;
 }
 /**
+ * Anonymous first-party analytics. Use Analytics in the sidebar for the report.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-events".
+ */
+export interface AnalyticsEvent {
+  id: number;
+  type: 'page_view' | 'page_exit' | 'form_submit' | 'whatsapp_click';
+  path: string;
+  /**
+   * Random sessionStorage ID for a single tab visit. Never a cookie.
+   */
+  sessionId?: string | null;
+  /**
+   * Visible seconds before exit, capped at 30 minutes.
+   */
+  duration?: number | null;
+  /**
+   * Origin only. Query strings and referring paths are not collected.
+   */
+  referrer?: string | null;
+  whatsappPlacement?: string | null;
+  /**
+   * Daily SHA-256 hash of IP, browser and secret. Raw IP is never retained.
+   */
+  visitorHash?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
@@ -563,6 +594,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'leads';
         value: number | Lead;
+      } | null)
+    | ({
+        relationTo: 'analytics-events';
+        value: number | AnalyticsEvent;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -803,7 +838,6 @@ export interface UsersSelect<T extends boolean = true> {
   resetPasswordExpiration?: T;
   salt?: T;
   hash?: T;
-  resetPasswordRequestedAt?: T;
   loginAttempts?: T;
   lockUntil?: T;
   sessions?:
@@ -827,6 +861,21 @@ export interface LeadsSelect<T extends boolean = true> {
   message?: T;
   source?: T;
   status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "analytics-events_select".
+ */
+export interface AnalyticsEventsSelect<T extends boolean = true> {
+  type?: T;
+  path?: T;
+  sessionId?: T;
+  duration?: T;
+  referrer?: T;
+  whatsappPlacement?: T;
+  visitorHash?: T;
   updatedAt?: T;
   createdAt?: T;
 }

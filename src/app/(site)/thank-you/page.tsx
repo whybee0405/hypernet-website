@@ -1,6 +1,7 @@
 import Link from '@/components/site/SiteLink'
 import { pageMetadata } from '@/lib/seo'
 import { CONTACT_EMAIL, CONTACT_HREF } from '@/lib/contact'
+import { EnquiryConversion } from '@/components/analytics/EnquiryConversion'
 
 export const metadata = {
   ...pageMetadata({ path: '/thank-you', title: 'Enquiry Received — Thank You', description: 'Your enquiry has been received by Hypernet. Our team will review your request and reply to the email address you provided. Explore our business services.' }),
@@ -10,6 +11,7 @@ export const metadata = {
 export default function ThankYouPage() {
   return (
     <section className="shell py-36 lg:py-44">
+      <EnquiryConversion />
       <p className="t-meta text-accent-text">Enquiry received</p>
       <h1 className="t-display mt-6 text-ink">Thank <span className="accent-word">you.</span></h1>
       <p className="t-lead mt-8">Your enquiry has been saved. Our team will review it and reply to the email address you provided.</p>

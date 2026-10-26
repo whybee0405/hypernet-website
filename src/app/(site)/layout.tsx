@@ -6,6 +6,7 @@ import { Footer } from '@/components/site/Footer'
 import { MotionProvider } from '@/components/site/MotionProvider'
 import { SmoothScroll } from '@/components/site/SmoothScroll'
 import { WhatsAppButton } from '@/components/site/WhatsAppButton'
+import { AnalyticsTracker } from '@/components/analytics/AnalyticsTracker'
 import { THEME_INIT_SCRIPT } from '@/lib/theme'
 import { getSiteSettings } from '@/lib/payload'
 import './globals.css'
@@ -82,6 +83,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
           <main id="main">{children}</main>
           <Footer settings={settings} />
           <WhatsAppButton />
+          <AnalyticsTracker />
         </MotionProvider>
       </body>
     </html>
