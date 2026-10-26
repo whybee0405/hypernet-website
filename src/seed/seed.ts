@@ -1,3 +1,4 @@
+import { CONTACT_EMAIL, COMPANY_ADDRESS, WHATSAPP_HREF } from '../lib/contact'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { getPayload } from 'payload'
@@ -359,13 +360,10 @@ const run = async () => {
     data: {
       phone: '011 568 4192',
       phoneHref: '+27115684192',
-      email: 'hello@hypernet.co.za',
+      email: CONTACT_EMAIL,
+      whatsapp: WHATSAPP_HREF,
       supportHours: SITE_SETTINGS_COPY.supportHours,
-      addressLines: [
-        { line: 'Unit 7, Kramerville Commercial Park' },
-        { line: '12 Desmond Street, Kramerville' },
-        { line: 'Sandton, 2090' },
-      ],
+      addressLines: COMPANY_ADDRESS.map((line) => ({ line })),
       metricsStatement: SITE_SETTINGS_COPY.metricsStatement,
       metricsSupport: SITE_SETTINGS_COPY.metricsSupport,
       // Only the first figure is confirmed. The others stay hidden until verified.

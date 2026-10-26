@@ -39,7 +39,7 @@ const clean = (value: FormDataEntryValue | null) =>
  */
 export async function submitLead(_previous: LeadState, formData: FormData): Promise<LeadState> {
   if (!(await allowLeadAttempt())) {
-    return { status: 'error', message: 'Too many attempts. Please wait a few minutes, or email hello@hypernet.co.za.' }
+    return { status: 'error', message: 'Too many attempts. Please wait a few minutes, or email info@hypernet.co.za.' }
   }
 
   // Honeypot. Real people never fill a field they cannot see.
@@ -99,7 +99,7 @@ export async function submitLead(_previous: LeadState, formData: FormData): Prom
     return {
       status: 'error',
       message:
-        'Your message could not be sent. Please try again or email hello@hypernet.co.za.',
+        'Your message could not be sent. Please try again or email info@hypernet.co.za.',
     }
   }
   redirect('/thank-you')
