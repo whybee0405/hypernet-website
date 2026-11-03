@@ -12,7 +12,6 @@ const COMPANY = [
   { href: '/insights', label: 'Insights' },
   { href: '/about', label: 'About Hypernet' },
   { href: '/contact', label: 'Contact us' },
-  { href: '/contact#support', label: 'Existing customer support' },
 ]
 
 export function Footer({ settings }: { settings: SiteSetting }) {
@@ -31,6 +30,13 @@ export function Footer({ settings }: { settings: SiteSetting }) {
             ) : null}
 
             <div className="mt-8 grid gap-3">
+              <a
+                href={settings.phoneHref}
+                className="inline-flex min-h-6 items-center gap-3 text-[0.9375rem] text-ink/85 transition-colors hover:text-accent-text"
+              >
+                <Phone size={18} aria-hidden="true" />
+                {settings.phone}
+              </a>
               <a
                 href={`mailto:${settings.email}`}
                 className="inline-flex min-h-6 items-center gap-3 text-[0.9375rem] text-ink/85 transition-colors hover:text-accent-text"

@@ -19,7 +19,18 @@ function sessionId() {
   }
 }
 
+/** Visitors who send Global Privacy Control or Do Not Track are not measured (see the privacy policy). */
+function optedOut() {
+  try {
+    const nav = navigator as Navigator & { globalPrivacyControl?: boolean }
+    return nav.globalPrivacyControl === true || nav.doNotTrack === '1'
+  } catch {
+    return false
+  }
+}
+
 function post(type: AnalyticsEventType, path: string, options: { duration?: number; placement?: string; beacon?: boolean } = {}) {
+  if (optedOut()) return
   let referrer = ''
   try { referrer = document.referrer ? new URL(document.referrer).origin : '' } catch { /* Invalid referrer. */ }
   const body = JSON.stringify({

@@ -5,7 +5,7 @@ import Link from '@/components/site/SiteLink'
 import { usePathname } from 'next/navigation'
 import { useCallback, useEffect, useId, useRef, useState } from 'react'
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'motion/react'
-import { ArrowRight, ArrowUpRight, CaretDown, List, EnvelopeSimple, X } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, ArrowUpRight, CaretDown, List, EnvelopeSimple, Phone, X } from '@phosphor-icons/react/dist/ssr'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 import { MobileActionBar } from './MobileActionBar'
@@ -21,7 +21,7 @@ const LINKS = [
   { href: '/about', label: 'About' },
 ]
 
-export function Nav({ email }: { email: string }) {
+export function Nav({ email, phone, phoneHref }: { email: string; phone: string; phoneHref: string }) {
   const pathname = usePathname()
   const [menuOpen, setMenuOpen] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -172,6 +172,13 @@ export function Nav({ email }: { email: string }) {
           <div className="flex items-center gap-2">
             <ThemeToggle className="hidden sm:inline-flex" />
             <a
+              href={phoneHref}
+              className="hidden h-11 items-center gap-2 rounded-full px-3 text-[0.9375rem] font-medium text-ink/85 transition-colors hover:text-ink xl:inline-flex"
+            >
+              <Phone size={16} weight="bold" aria-hidden="true" />
+              {phone}
+            </a>
+            <a
               href={`mailto:${email}`}
               className="hidden h-11 items-center gap-2 rounded-full px-3 text-[0.9375rem] font-medium text-ink/85 transition-colors hover:text-ink 2xl:inline-flex"
             >
@@ -302,7 +309,11 @@ export function Nav({ email }: { email: string }) {
 
               <div className="flex items-center justify-between gap-6 border-t border-hairline px-7 py-4">
                 <p className="text-[0.875rem] text-slate">
-                  Help choosing a service:{' '}
+                  Help choosing a service: call{' '}
+                  <a href={phoneHref} className="font-semibold text-ink hover:text-accent-text">
+                    {phone}
+                  </a>{' '}
+                  or email{' '}
                   <a href={`mailto:${email}`} className="font-semibold text-ink hover:text-accent-text">
                     {email}
                   </a>
@@ -375,6 +386,10 @@ export function Nav({ email }: { email: string }) {
                 <Link href="/contact" className="btn btn-primary w-full">
                   Contact us
                 </Link>
+                <a href={phoneHref} className="btn btn-secondary w-full">
+                  <Phone size={17} weight="bold" aria-hidden="true" />
+                  {phone}
+                </a>
                 <a href={`mailto:${email}`} className="btn btn-secondary w-full">
                   <EnvelopeSimple size={17} weight="bold" aria-hidden="true" />
                   {email}

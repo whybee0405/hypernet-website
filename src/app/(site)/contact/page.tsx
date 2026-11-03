@@ -1,5 +1,5 @@
 import { pageMetadata } from '@/lib/seo'
-import { Clock, EnvelopeSimple, MapPin, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
+import { Clock, EnvelopeSimple, MapPin, Phone, WhatsappLogo } from '@phosphor-icons/react/dist/ssr'
 import { ContactForm } from '@/components/site/ContactForm'
 import { SplitHeading } from '@/components/site/motion'
 import { Reveal } from '@/components/site/Reveal'
@@ -29,7 +29,7 @@ export default async function ContactPage({ searchParams }: Props) {
             />
             <Reveal delay={0.3}>
               <p className="t-lead mt-7">
-                Email us or send an enquiry using the form below. We will reply to the email address you provide.
+                Call us, email us or send an enquiry using the form below.
               </p>
             </Reveal>
 
@@ -45,6 +45,21 @@ export default async function ContactPage({ searchParams }: Props) {
                   <span className="block text-[0.875rem] text-slate">Email Hypernet</span>
                   <span className="mt-1 block font-display break-all text-[clamp(1rem,2vw,1.5rem)] font-bold tracking-[-0.045em] text-ink">
                     {settings.email}
+                  </span>
+                </span>
+              </a>
+
+              <a
+                href={settings.phoneHref}
+                className="card group mt-4 flex items-center gap-5 p-6 transition-transform duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] hover:-translate-y-1"
+              >
+                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-accent text-white">
+                  <Phone size={24} weight="fill" aria-hidden="true" />
+                </span>
+                <span>
+                  <span className="block text-[0.875rem] text-slate">Call Hypernet</span>
+                  <span className="mt-1 block font-display text-[clamp(1rem,2vw,1.5rem)] font-bold tracking-[-0.045em] text-ink">
+                    {settings.phone}
                   </span>
                 </span>
               </a>

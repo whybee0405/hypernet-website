@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, COMPANY_ADDRESS, WHATSAPP_HREF } from './contact'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, COMPANY_ADDRESS, WHATSAPP_HREF } from './contact'
 import 'server-only'
 import { cache } from 'react'
 import { getPayload, type Where } from 'payload'
@@ -25,6 +25,8 @@ export const getSiteSettings = cache(async (): Promise<SiteSetting> => {
   return {
     ...settings,
     email: CONTACT_EMAIL,
+    phone: CONTACT_PHONE,
+    phoneHref: CONTACT_PHONE_HREF,
     whatsapp: WHATSAPP_HREF,
     addressLines: COMPANY_ADDRESS.map((line) => ({ line })),
   }

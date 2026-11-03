@@ -34,8 +34,8 @@ Please confirm:
 
 Please confirm the following information is correct and monitored:
 
-- [ ] Main telephone number: 011 568 4192
-- [ ] Email address: hello@hypernet.co.za
+- [ ] Main telephone number: 010 013 3100
+- [ ] Email address: info@hypernet.co.za
 - [ ] Office address shown on the website
 - [ ] Support hours: Monday to Friday, 07:00–18:00; after-hours cover on Pro plans
 - [ ] Hypernet can fulfil promises to call back, reply to enquiries and provide the stated support coverage.

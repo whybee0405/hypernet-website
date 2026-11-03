@@ -1,12 +1,13 @@
 import Image from 'next/image'
 import Link from '@/components/site/SiteLink'
-import { ArrowRight, EnvelopeSimple } from '@phosphor-icons/react/dist/ssr'
+import { ArrowRight, EnvelopeSimple, Phone } from '@phosphor-icons/react/dist/ssr'
+import { CONTACT_PHONE, CONTACT_PHONE_HREF } from '@/lib/contact'
 import { Parallax, SplitHeading } from './motion'
 import { Reveal } from './Reveal'
 
 /**
  * Closing band on every page. The night city sits behind on a slow parallax,
- * and the confirmed email address provides a direct contact route.
+ * and the confirmed phone number and email address provide direct contact routes.
  */
 export function CtaBand({
   heading,
@@ -47,7 +48,15 @@ export function CtaBand({
 
           <Reveal delay={0.15} className="lg:col-span-5">
             <div className="card p-7 sm:p-8">
-              <p className="t-meta text-slate">Email Hypernet</p>
+              <p className="t-meta text-slate">Call Hypernet</p>
+              <a
+                href={CONTACT_PHONE_HREF}
+                className="mt-3 flex items-center gap-3 font-display text-[clamp(1rem,2vw,1.5rem)] font-bold tracking-[-0.045em] text-ink transition-colors hover:text-accent-text"
+              >
+                <Phone size={30} weight="duotone" aria-hidden="true" className="text-warm" />
+                {CONTACT_PHONE}
+              </a>
+              <p className="t-meta mt-6 text-slate">Email Hypernet</p>
               <a
                 href={`mailto:${email}`}
                 className="mt-3 flex break-all items-center gap-3 font-display text-[clamp(1rem,2vw,1.5rem)] font-bold tracking-[-0.045em] text-ink transition-colors hover:text-accent-text"
@@ -55,7 +64,7 @@ export function CtaBand({
                 <EnvelopeSimple size={30} weight="duotone" aria-hidden="true" className="text-warm" />
                 {email}
               </a>
-              <p className="mt-2 text-[0.875rem] text-slate">Send your questions to our team.</p>
+              <p className="mt-2 text-[0.875rem] text-slate">Call or email our team with your questions.</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact" className="btn btn-primary flex-1">
                   Contact us

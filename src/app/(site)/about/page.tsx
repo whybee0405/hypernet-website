@@ -183,7 +183,7 @@ export default async function AboutPage() {
 
       <CtaBand
         heading="Contact us"
-        body="Email info@hypernet.co.za or send an enquiry and our team will reply."
+        body="Call 010 013 3100, email info@hypernet.co.za or send an enquiry and our team will reply."
         email={settings.email}
 
       />

@@ -1,4 +1,4 @@
-import { CONTACT_EMAIL, COMPANY_ADDRESS, WHATSAPP_HREF } from '../lib/contact'
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF, COMPANY_ADDRESS, WHATSAPP_HREF } from '../lib/contact'
 import path from 'path'
 import { fileURLToPath } from 'url'
 import { getPayload } from 'payload'
@@ -358,8 +358,8 @@ const run = async () => {
   await payload.updateGlobal({
     slug: 'site-settings',
     data: {
-      phone: '011 568 4192',
-      phoneHref: '+27115684192',
+      phone: CONTACT_PHONE,
+      phoneHref: CONTACT_PHONE_HREF,
       email: CONTACT_EMAIL,
       whatsapp: WHATSAPP_HREF,
       supportHours: SITE_SETTINGS_COPY.supportHours,

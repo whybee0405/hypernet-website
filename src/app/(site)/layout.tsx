@@ -79,7 +79,7 @@ export default async function SiteLayout({ children }: { children: React.ReactNo
 
         <MotionProvider>
           <SmoothScroll />
-          <Nav email={settings.email}  />
+          <Nav email={settings.email} phone={settings.phone} phoneHref={settings.phoneHref} />
           <main id="main">{children}</main>
           <Footer settings={settings} />
           <WhatsAppButton />

@@ -1,6 +1,6 @@
 import Link from '@/components/site/SiteLink'
 import { pageMetadata } from '@/lib/seo'
-import { CONTACT_EMAIL, CONTACT_HREF } from '@/lib/contact'
+import { CONTACT_EMAIL, CONTACT_HREF, CONTACT_PHONE, CONTACT_PHONE_HREF } from '@/lib/contact'
 import { EnquiryConversion } from '@/components/analytics/EnquiryConversion'
 
 export const metadata = {
@@ -15,7 +15,7 @@ export default function ThankYouPage() {
       <p className="t-meta text-accent-text">Enquiry received</p>
       <h1 className="t-display mt-6 text-ink">Thank <span className="accent-word">you.</span></h1>
       <p className="t-lead mt-8">Your enquiry has been saved. Our team will review it and reply to the email address you provided.</p>
-      <p className="mt-5 text-base text-slate">Need to add something? Email <a href={CONTACT_HREF} className="inline-flex min-h-11 items-center text-accent-text underline">{CONTACT_EMAIL}</a>.</p>
+      <p className="mt-5 text-base text-slate">Need to add something? Call <a href={CONTACT_PHONE_HREF} className="inline-flex min-h-11 items-center text-accent-text underline">{CONTACT_PHONE}</a> or email <a href={CONTACT_HREF} className="inline-flex min-h-11 items-center text-accent-text underline">{CONTACT_EMAIL}</a>.</p>
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link href="/" className="btn btn-primary">Back to the homepage</Link>
         <Link href="/services" className="btn btn-secondary">Explore services</Link>
