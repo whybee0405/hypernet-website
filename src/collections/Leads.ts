@@ -1,6 +1,9 @@
 import type { CollectionConfig } from 'payload'
 import { authenticated } from '../access'
 
+/** Privacy policy section 8: enquiries are kept for up to two years. */
+const RETENTION_MS = 2 * 365 * 24 * 60 * 60 * 1000
+
 export const Leads: CollectionConfig = {
   slug: 'leads',
   labels: { singular: 'Enquiry', plural: 'Enquiries' },
@@ -16,6 +19,18 @@ export const Leads: CollectionConfig = {
     create: () => false,
     update: authenticated,
     delete: authenticated,
+  },
+  hooks: {
+    afterChange: [
+      async ({ req, operation }) => {
+        if (operation !== 'create') return
+        await req.payload.delete({
+          collection: 'leads',
+          overrideAccess: true,
+          where: { createdAt: { less_than: new Date(Date.now() - RETENTION_MS).toISOString() } },
+        })
+      },
+    ],
   },
   fields: [
     { name: 'name', type: 'text', required: true },

@@ -5,7 +5,7 @@ import { getSiteSettings } from '@/lib/payload'
 
 export const metadata = pageMetadata({ path: '/legal/privacy' })
 
-const EFFECTIVE_DATE = '3 November 2026'
+const EFFECTIVE_DATE = '4 November 2026'
 
 /**
  * Every statement here must match what the site actually does. If you change
@@ -126,13 +126,13 @@ export default async function PrivacyPage() {
             </p>
             <ul>
               <li>
-                service providers who host, maintain, secure and back up our website and systems,
-                and who provide our email;
+                service providers who host, maintain, secure and back up our website and systems;
               </li>
               <li>
                 network and voice providers, only to the extent needed to check availability, install,
                 provision and support your service;
               </li>
+              <li>Microsoft, which provides our email through Microsoft 365;</li>
               <li>professional advisers, where needed; and</li>
               <li>authorities, where the law requires it.</li>
             </ul>
@@ -144,15 +144,19 @@ export default async function PrivacyPage() {
             <h2>7. Where it is stored</h2>
             <p>
               This website, including enquiries and analytics, is hosted on a server in South Africa.
-              Some of our service providers, such as email providers, may store or access information
-              outside South Africa. Where that happens, we only transfer information as permitted by
-              section 72 of POPIA, for example to a country or provider with adequate protection or
-              under a binding agreement.
+              Emails you send us are held in our Microsoft 365 mailbox. Microsoft may store or
+              process some of this information outside South Africa under its
+              own data-protection terms. Our staff and support team are based in South Africa. Where
+              information is transferred outside South Africa, we only do so as permitted by section
+              72 of POPIA, for example to a provider bound by adequate data-protection terms.
             </p>
 
             <h2>8. How long we keep it</h2>
             <ul>
-              <li>Enquiries that do not lead to a service: up to two years after our last contact.</li>
+              <li>
+                Enquiries that do not lead to a service, including enquiry emails: up to two years.
+                Website enquiry records are deleted automatically after two years.
+              </li>
               <li>
                 Customer records: for as long as your service runs, then for the period tax,
                 company and telecommunications laws require.
@@ -172,9 +176,8 @@ export default async function PrivacyPage() {
               or delete it, object to how we use it, or withdraw any consent you gave. Some rights
               have legal limits. For example, we may need to keep certain records by law. We may ask
               you to confirm your identity before we act on a request. Send requests to the
-              Information Officer at {email} or {phone}. Requests for records may also be made
-              under the Promotion of Access to Information Act; our PAIA manual is available on
-              request.
+              Information Officer at {email} or {phone}. You may also request records under the
+              Promotion of Access to Information Act by contacting the Information Officer.
             </p>
 
             <h2>10. Cookies and browser storage</h2>
