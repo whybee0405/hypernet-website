@@ -67,6 +67,11 @@ export default async function PrivacyPage() {
               detail.
             </p>
             <p>
+              <strong>Call recordings.</strong> Calls to and from {phone} are recorded. You will hear
+              an announcement at the start of the call. A recording captures your voice, your phone
+              number, the time of the call and anything said during it.
+            </p>
+            <p>
               <strong>Website analytics.</strong> We run our own analytics on our own server; no
               third-party analytics or advertising service receives this data. For each page visit we
               record the page address (without any query string), how long the page was visible
@@ -89,6 +94,8 @@ export default async function PrivacyPage() {
             <p>
               We use enquiry information to reply to you, prepare quotes, and keep a record of our
               conversation. We use customer information to provide, support and bill your service. We
+              use call recordings to confirm what was agreed, resolve queries and complaints, and train
+              and support our team. We
               use analytics to understand which pages are useful and to improve the site. We use
               server logs to keep the site working and secure.
             </p>
@@ -161,6 +168,7 @@ export default async function PrivacyPage() {
                 Customer records: for as long as your service runs, then for the period tax,
                 company and telecommunications laws require.
               </li>
+              <li>Call recordings: only as long as needed for the purposes above, then deleted.</li>
               <li>Analytics events: 14 months.</li>
               <li>Web server logs: 14 days.</li>
               <li>Backups: overwritten on a regular rotation.</li>
