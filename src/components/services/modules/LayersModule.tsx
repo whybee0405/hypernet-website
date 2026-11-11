@@ -30,7 +30,7 @@ const LAYERS = [
 ] as const
 
 /**
- * Dragon Guard: three rings around the business, lit one at a time as the
+ * HyperGuard: three rings around the business, lit one at a time as the
  * reader scrolls. Each stage shows a typical attack and the layer that blocks
  * it.
  */

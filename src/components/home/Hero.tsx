@@ -108,7 +108,7 @@ export function Hero({ headlineLead, headlineAccent, subtext }: HeroProps) {
               className="mt-10 flex flex-col gap-3 sm:flex-row"
             >
               <Link href="/contact" className="btn btn-primary">
-                Contact us
+                Book a free consultation
                 <ArrowRight size={17} weight="bold" aria-hidden="true" className="btn-arrow" />
               </Link>
               <Link href="/services" className="btn btn-secondary">

@@ -168,7 +168,7 @@ export function PlanFinder({ plans }: { plans: Plan[] }) {
 
                     <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
                       <Link href="/contact" className="btn btn-primary">
-                        Contact us
+                        Book a free consultation
                         <ArrowRight size={17} weight="bold" aria-hidden="true" />
                       </Link>
                       <button

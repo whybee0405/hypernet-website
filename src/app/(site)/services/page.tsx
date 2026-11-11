@@ -18,7 +18,7 @@ const SYMPTOMS = [
   { symptom: 'Staff use separate apps for calls, meetings and chat', slugs: ['unified-communications'] },
   { symptom: 'Customer WhatsApp messages and emails go unanswered', slugs: ['contact-centre'] },
   { symptom: 'Staff need secure remote access', slugs: ['secure-business'] },
-  { symptom: 'Fake invoices are being sent from our domain', slugs: ['dragon-guard'] },
+  { symptom: 'Fake invoices are being sent from our domain', slugs: ['hyperguard'] },
   { symptom: 'Staff re-type data between systems', slugs: ['integration-suite'] },
 ]
 

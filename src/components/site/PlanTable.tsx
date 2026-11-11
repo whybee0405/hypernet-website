@@ -21,7 +21,7 @@ export function PlanTable({ plans }: { plans: Plan[] }) {
             address and we will reply with the available options and prices.
           </p>
           <Link href="/contact" className="btn btn-primary mt-7">
-            Contact us
+            Book a free consultation
             <ArrowRight size={17} weight="bold" aria-hidden="true" />
           </Link>
         </div>

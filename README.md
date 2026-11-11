@@ -218,7 +218,7 @@ The signature moves:
    travel through the catalogue; a native snap rail on mobile.
 4. **Stacking packages** (`services/PackageStack.tsx`) - package cards pin and deal on top of each
    other.
-5. **Bespoke service modules** (`services/modules/`) - CloudPath failover demo, Dragon Guard attack
+5. **Bespoke service modules** (`services/modules/`) - CloudPath failover demo, HyperGuard attack
    layers, contact-centre channel orbit, zero-trust contrast, UC comparison and so on.
 6. **The direct line** (`home/DirectLine.tsx`) - a coral filament drawn down the support process.
 

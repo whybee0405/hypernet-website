@@ -21,7 +21,7 @@ const INTERESTS = [
   'unified-communications',
   'contact-centre',
   'secure-business',
-  'dragon-guard',
+  'hyperguard',
   'integration-suite',
   'other',
 ] as const

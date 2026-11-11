@@ -14,7 +14,7 @@ export default function ThankYouPage() {
       <EnquiryConversion />
       <p className="t-meta text-accent-text">Enquiry received</p>
       <h1 className="t-display mt-6 text-ink">Thank <span className="accent-word">you.</span></h1>
-      <p className="t-lead mt-8">Your enquiry has been saved. Our team will review it and reply to the email address you provided.</p>
+      <p className="t-lead mt-8">Your free consultation request has been received. Our team will contact you to arrange a time.</p>
       <p className="mt-5 text-base text-slate">Need to add something? Call <a href={CONTACT_PHONE_HREF} className="inline-flex min-h-11 items-center text-accent-text underline">{CONTACT_PHONE}</a> or email <a href={CONTACT_HREF} className="inline-flex min-h-11 items-center text-accent-text underline">{CONTACT_EMAIL}</a>.</p>
       <div className="mt-10 flex flex-col gap-3 sm:flex-row">
         <Link href="/" className="btn btn-primary">Back to the homepage</Link>

@@ -501,7 +501,7 @@ export interface Lead {
     | 'unified-communications'
     | 'contact-centre'
     | 'secure-business'
-    | 'dragon-guard'
+    | 'hyperguard'
     | 'integration-suite'
     | 'other';
   message?: string | null;

@@ -1,6 +1,6 @@
-# 08. Dragon Guard: triple-layer protection
+# 08. HyperGuard: triple-layer protection
 
-Source: `8. Dragon Guard.pdf` (2 pages).
+Source: `8. Dragon Guard.pdf` (service renamed HyperGuard, November 2026) (2 pages).
 
 ## In one sentence
 
@@ -40,10 +40,10 @@ Shields the website, APIs and remote staff.
 
 ## Positioning
 
-Secure Business is the Cloudflare layer on its own. Dragon Guard is all three layers as one managed
+Secure Business is the Cloudflare layer on its own. HyperGuard is all three layers as one managed
 package, for businesses that want email, endpoint and edge covered by one provider.
 
 ## How it appears on the site
 
-`/services/dragon-guard`: three-layer scroll sequence (email → endpoint → edge), a
+`/services/hyperguard`: three-layer scroll sequence (email → endpoint → edge), a
 "how an attack is stopped at each layer" explainer, comparison with Secure Business.

@@ -615,30 +615,30 @@ export const SERVICES: Service[] = [
       'Retail and multi-branch businesses',
     ],
     module: 'zero-trust',
-    related: ['dragon-guard', 'cloudpath', 'connectivity'],
+    related: ['hyperguard', 'cloudpath', 'connectivity'],
     ctaHeading: 'Request a security review',
     ctaBody:
       'We review how your staff reach business systems today and propose a zero-trust setup to replace it.',
   },
   {
-    slug: 'dragon-guard',
-    name: 'Dragon Guard',
+    slug: 'hyperguard',
+    name: 'HyperGuard',
     short: 'Managed email, endpoint and network security from Sendmarc, Sophos and Cloudflare.',
     pillar: 'protect',
-    image: '/brand/dragon-guard.webp',
-    photo: '/brand/people/svc-dragon-guard.webp',
+    image: '/brand/hyperguard.webp',
+    photo: '/brand/people/svc-hyperguard.webp',
     photoAlt: 'Illustration: A finance officer and colleague checking a suspicious email in the evening',
     poweredBy: 'Sendmarc, Sophos and Cloudflare',
-    metaTitle: 'Dragon Guard: three-layer cybersecurity',
+    metaTitle: 'HyperGuard: three-layer cybersecurity',
     metaDescription:
-      'Dragon Guard combines Sendmarc email authentication, Sophos endpoint protection with 24/7 MDR, and Cloudflare edge security in one managed package.',
+      'HyperGuard combines Sendmarc email authentication, Sophos endpoint protection with 24/7 MDR, and Cloudflare edge security in one managed package.',
     title: 'Three-layer',
     titleAccent: 'cybersecurity.',
-    lead: 'Dragon Guard covers the three main routes attackers use: email, devices and the internet-facing edge of your network. Each layer runs on a specialist platform, and we manage all three as one service.',
+    lead: 'HyperGuard covers the three main routes attackers use: email, devices and the internet-facing edge of your network. Each layer runs on a specialist platform, and we manage all three as one service.',
     statement:
-      'Most attacks start with email. Once an attacker is inside, malware spreads quickly, and anything you run online is scanned constantly. Dragon Guard puts a separate specialist platform on each of these three routes.',
+      'Most attacks start with email. Once an attacker is inside, malware spreads quickly, and anything you run online is scanned constantly. HyperGuard puts a separate specialist platform on each of these three routes.',
     statementAccent: ['three', 'routes.'],
-    packagesHeading: 'Dragon Guard layers',
+    packagesHeading: 'HyperGuard layers',
     packagesIntro: 'We deploy, configure and monitor all three platforms.',
     packages: [
       {
@@ -700,7 +700,7 @@ export const SERVICES: Service[] = [
     ],
     module: 'layers',
     related: ['secure-business', 'integration-suite', 'cloudpath'],
-    ctaHeading: 'Book a Dragon Guard assessment',
+    ctaHeading: 'Book a HyperGuard assessment',
     ctaBody:
       'We review your email domain, devices and online services and report which areas need attention first.',
   },
@@ -781,7 +781,7 @@ export const SERVICES: Service[] = [
       'New services set up by hand',
     ],
     module: 'recipes',
-    related: ['contact-centre', 'unified-communications', 'dragon-guard'],
+    related: ['contact-centre', 'unified-communications', 'hyperguard'],
     ctaHeading: 'Request a proof of concept',
     ctaBody:
       'Tell us which two systems you want connected and we will build a free proof of concept on your own data.',

@@ -31,7 +31,7 @@ export default async function CaseStudiesPage() {
                   Case studies are published after client approval.
                 </p>
                 <Link href="/contact" className="btn btn-primary mt-7">
-                  Contact us
+                  Book a free consultation
                 </Link>
               </div>
             </Reveal>

@@ -37,7 +37,7 @@ export function MobileActionBar({ menuOpen = false, onMenuToggle, onNavigate }: 
           requestAnimationFrame(revealForm)
         }
       }} className="btn btn-primary flex-1">
-        {onContact ? 'Send an enquiry' : 'Contact us'}
+        {onContact ? 'Book my consultation' : 'Free consultation'}
         <ArrowRight size={20} aria-hidden="true" />
       </Link>
     </nav>

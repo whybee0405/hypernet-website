@@ -29,7 +29,7 @@ export default async function ContactPage({ searchParams }: Props) {
             />
             <Reveal delay={0.3}>
               <p className="t-lead mt-7">
-                Call us, email us or send an enquiry using the form below.
+                Book a free consultation with our team. Call us, email us or use the form below, and we will arrange a time that suits you.
               </p>
             </Reveal>
 

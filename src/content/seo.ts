@@ -56,9 +56,9 @@ export const PAGE_SEO: Record<string, { title: string; description: string }> = 
     "title": "Secure Business & Cloudflare Zero Trust",
     "description": "Protect staff access, business applications and websites with Hypernet Secure Business, combining managed Cloudflare zero trust, DNS and web security."
   },
-  "/services/dragon-guard": {
-    "title": "Dragon Guard Managed Cybersecurity",
-    "description": "Explore Dragon Guard from Hypernet: managed email authentication, endpoint protection and edge security using Sendmarc, Sophos and Cloudflare platforms."
+  "/services/hyperguard": {
+    "title": "HyperGuard Managed Cybersecurity",
+    "description": "Explore HyperGuard from Hypernet: managed email authentication, endpoint protection and edge security using Sendmarc, Sophos and Cloudflare platforms."
   },
   "/services/integration-suite": {
     "title": "Business System Integration with Flowgear",

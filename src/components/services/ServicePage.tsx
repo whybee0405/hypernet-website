@@ -51,7 +51,7 @@ export function ServicePage({
               <Reveal delay={0.45}>
                 <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center">
                   <Link href={`/contact?service=${service.slug}`} className="btn btn-primary">
-                    Contact us
+                    Book a free consultation
                     <ArrowRight size={16} weight="bold" aria-hidden="true" className="btn-arrow" />
                   </Link>
                   <a href="#packages" className="btn btn-secondary">

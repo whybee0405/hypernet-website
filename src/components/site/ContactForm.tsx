@@ -16,7 +16,7 @@ const INTERESTS = [
   { value: 'unified-communications', label: 'Unified Communications' },
   { value: 'contact-centre', label: 'Omni-channel Contact Centre' },
   { value: 'secure-business', label: 'Secure Business' },
-  { value: 'dragon-guard', label: 'Dragon Guard' },
+  { value: 'hyperguard', label: 'HyperGuard' },
   { value: 'integration-suite', label: 'Integration Suite' },
   { value: 'other', label: 'Not sure, or something else' },
 ]
@@ -25,8 +25,8 @@ function SubmitButton() {
   const { pending } = useFormStatus()
 
   return (
-    <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={pending} aria-busy={pending} aria-label={pending ? 'Sending…' : 'Send message'}>
-      <span>{pending ? 'Sending…' : 'Send message'}</span>
+    <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={pending} aria-busy={pending} aria-label={pending ? 'Sending…' : 'Book my free consultation'}>
+      <span>{pending ? 'Sending…' : 'Book my free consultation'}</span>
       {pending ? null : <ArrowRight size={17} weight="bold" aria-hidden="true" />}
     </button>
   )

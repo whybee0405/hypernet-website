@@ -186,7 +186,7 @@ export function Nav({ email, phone, phoneHref }: { email: string; phone: string;
               {email}
             </a>
             <Link href="/contact" className="btn btn-primary hidden !py-3 !text-sm sm:inline-flex">
-              Contact us
+              Free consultation
             </Link>
             <button
               type="button"
@@ -384,7 +384,7 @@ export function Nav({ email, phone, phoneHref }: { email: string; phone: string;
               </div>
               <div className="grid gap-3">
                 <Link href="/contact" className="btn btn-primary w-full">
-                  Contact us
+                  Book a free consultation
                 </Link>
                 <a href={phoneHref} className="btn btn-secondary w-full">
                   <Phone size={17} weight="bold" aria-hidden="true" />

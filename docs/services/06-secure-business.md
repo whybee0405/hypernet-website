@@ -59,4 +59,4 @@ any team that needs secure remote access.
 ## How it appears on the site
 
 `/services/secure-business`: three-layer package breakdown, "who it's for", VPN-vs-zero-trust
-contrast, link to Dragon Guard for businesses that want endpoint and email protection too.
+contrast, link to HyperGuard for businesses that want endpoint and email protection too.

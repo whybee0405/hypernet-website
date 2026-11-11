@@ -50,7 +50,7 @@ export const Leads: CollectionConfig = {
         { label: 'Unified Communications', value: 'unified-communications' },
         { label: 'Contact centre', value: 'contact-centre' },
         { label: 'Secure Business', value: 'secure-business' },
-        { label: 'Dragon Guard', value: 'dragon-guard' },
+        { label: 'HyperGuard', value: 'hyperguard' },
         { label: 'Integration Suite', value: 'integration-suite' },
         { label: 'Something else', value: 'other' },
       ],

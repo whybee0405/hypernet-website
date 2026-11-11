@@ -20,6 +20,8 @@ const nextConfig = {
     return [
       { source: '/connectivity', destination: '/services/connectivity', permanent: true },
       { source: '/voip', destination: '/services/voip', permanent: true },
+      // Dragon Guard was renamed HyperGuard in November 2026.
+      { source: '/services/dragon-guard', destination: '/services/hyperguard', permanent: true },
     ]
   },
   experimental: {

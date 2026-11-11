@@ -64,10 +64,10 @@ export function CtaBand({
                 <EnvelopeSimple size={30} weight="duotone" aria-hidden="true" className="text-warm" />
                 {email}
               </a>
-              <p className="mt-2 text-[0.875rem] text-slate">Call or email our team with your questions.</p>
+              <p className="mt-2 text-[0.875rem] text-slate">Call or email our team, or book a free consultation.</p>
               <div className="mt-7 flex flex-col gap-3 sm:flex-row">
                 <Link href="/contact" className="btn btn-primary flex-1">
-                  Contact us
+                  Book a free consultation
                   <ArrowRight size={16} weight="bold" aria-hidden="true" className="btn-arrow" />
                 </Link>
               </div>

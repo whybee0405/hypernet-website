@@ -15,7 +15,7 @@ Flowgear) are named where knowing them helps a buyer decide, which is how the br
 | 4 | Omni Channel Contact Centre | [04-contact-centre.md](04-contact-centre.md) | `/services/contact-centre` | Communicate |
 | 5 | Unified Communications | [05-unified-communications.md](05-unified-communications.md) | `/services/unified-communications` | Communicate |
 | 6 | Secure Business | [06-secure-business.md](06-secure-business.md) | `/services/secure-business` | Protect |
-| 8 | Dragon Guard | [08-dragon-guard.md](08-dragon-guard.md) | `/services/dragon-guard` | Protect |
+| 8 | HyperGuard | [08-hyperguard.md](08-hyperguard.md) | `/services/hyperguard` | Protect |
 | 9 | Integration Suite | [09-integration-suite.md](09-integration-suite.md) | `/services/integration-suite` | Automate |
 | 10 | CloudPath | [10-cloudpath.md](10-cloudpath.md) | `/services/cloudpath` | Connect |
 
@@ -34,7 +34,7 @@ The megamenu groups the nine offers into four jobs a business owner recognises:
 
 1. **Connect**: business internet (fibre, wireless, failover), CloudPath SD-WAN.
 2. **Communicate**: VoIP, Unified Communications, Omni-channel Contact Centre.
-3. **Protect**: Secure Business, Dragon Guard.
+3. **Protect**: Secure Business, HyperGuard.
 4. **Automate**: Integration Suite.
 
 ## Claims policy
