@@ -5,7 +5,7 @@ import { getSiteSettings } from '@/lib/payload'
 
 export const metadata = pageMetadata({ path: '/legal/privacy' })
 
-const EFFECTIVE_DATE = '4 November 2026'
+const EFFECTIVE_DATE = '16 November 2026'
 
 /**
  * Every statement here must match what the site actually does. If you change
@@ -168,7 +168,7 @@ export default async function PrivacyPage() {
                 Customer records: for as long as your service runs, then for the period tax,
                 company and telecommunications laws require.
               </li>
-              <li>Call recordings: only as long as needed for the purposes above, then deleted.</li>
+              <li>Call recordings: 30 days, then deleted automatically.</li>
               <li>Analytics events: 14 months.</li>
               <li>Web server logs: 14 days.</li>
               <li>Backups: overwritten on a regular rotation.</li>
