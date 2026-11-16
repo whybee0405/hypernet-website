@@ -14,7 +14,7 @@ export const metadata = pageMetadata({ path: '/services' })
 /** Common problems mapped to the services that solve them. */
 const SYMPTOMS = [
   { symptom: 'The internet goes down and trading stops', slugs: ['cloudpath', 'connectivity'] },
-  { symptom: 'Calls drop, echo or break up', slugs: ['voip', 'connectivity'] },
+  { symptom: 'Calls drop, echo or break up', slugs: ['unified-communications', 'connectivity'] },
   { symptom: 'Staff use separate apps for calls, meetings and chat', slugs: ['unified-communications'] },
   { symptom: 'Customer WhatsApp messages and emails go unanswered', slugs: ['contact-centre'] },
   { symptom: 'Staff need secure remote access', slugs: ['secure-business'] },

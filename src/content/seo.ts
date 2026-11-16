@@ -14,7 +14,7 @@ export const PAGE_SEO: Record<string, { title: string; description: string }> = 
   },
   "/pricing": {
     "title": "Business Internet & VoIP Plans and Pricing",
-    "description": "Explore business internet and VoIP plans from Hypernet. Request a quote tailored to your location, team size, connectivity needs and branch network."
+    "description": "Compare Hypernet 5G and LTE data from R499 a month and hosted UC phone extensions from R75 a month, and request a quote for business fibre."
   },
   "/contact": {
     "title": "Contact Sales & Support",
@@ -40,13 +40,9 @@ export const PAGE_SEO: Record<string, { title: string; description: string }> = 
     "title": "CloudPath SD-WAN & Internet Failover",
     "description": "Discover CloudPath SD-WAN from Hypernet. Combine multiple internet links with automatic failover and a consistent static IP for business continuity."
   },
-  "/services/voip": {
-    "title": "Business VoIP & Hosted Phone Lines",
-    "description": "Move your business calls to hosted VoIP with Hypernet. Keep your existing numbers, use desk phones or mobile apps, and get managed connectivity support."
-  },
   "/services/unified-communications": {
-    "title": "Cloud PBX, Video Meetings & Team Chat",
-    "description": "Bring business calls, video meetings and team chat together with Hypernet Unified Communications, supported across desk phones, laptops and mobile apps."
+    "title": "Hosted Business Phone System & Extensions",
+    "description": "Hosted phone extensions from R75 a month. Keep your existing numbers, take calls on a desk phone, PC or mobile app, and add video meetings when you need them."
   },
   "/services/contact-centre": {
     "title": "Omni-channel Contact Centre Software",

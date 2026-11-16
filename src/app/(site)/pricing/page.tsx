@@ -4,6 +4,8 @@ import Link from '@/components/site/SiteLink'
 import { ArrowUpRight, Check } from '@phosphor-icons/react/dist/ssr'
 import { PageHero } from '@/components/site/PageHero'
 import { PlanTable } from '@/components/site/PlanTable'
+import { MobileDataPricing } from '@/components/site/MobileDataPricing'
+import { HostedUcPricing } from '@/components/site/HostedUcPricing'
 import { CtaBand } from '@/components/site/CtaBand'
 import { SplitHeading } from '@/components/site/motion'
 import { Reveal } from '@/components/site/Reveal'
@@ -14,12 +16,12 @@ export const metadata = pageMetadata({ path: '/pricing' })
 
 const HONESTY = [
   {
-    question: 'Why are prices not listed?',
+    question: 'Why are some prices not listed?',
     answer:
-      'Pricing depends on what can be installed at your address. A site survey takes one or two days and gives you a fixed price.',
+      'Fibre and other installed connections depend on what can be installed at your address. A site survey takes one or two days and gives you a fixed price.',
   },
   {
-    question: 'What is included in every plan?',
+    question: 'What is included in every installed plan?',
     answer:
       'A site survey, a configured and supported router, standard cabling, traffic prioritisation and line monitoring.',
   },
@@ -35,7 +37,7 @@ const HONESTY = [
   },
 ]
 
-const PRICED_PER_SETUP = SERVICES.filter((service) => !['connectivity', 'voip'].includes(service.slug))
+const PRICED_PER_SETUP = SERVICES.filter((service) => !['connectivity', 'unified-communications'].includes(service.slug))
 
 export default async function PricingPage() {
   const [settings, plans] = await Promise.all([getSiteSettings(), getPlans()])
@@ -45,8 +47,11 @@ export default async function PricingPage() {
       <PageHero
         title="Plans and"
         accent="pricing"
-        lead="Three connectivity and VoIP plans for different business sizes. Prices depend on what can be installed at your address, so we quote after a site survey."
+        lead="Monthly prices for our 5G and LTE data and hosted UC packages. Fibre and other installed services depend on what can be installed at your address, so we quote after a site survey."
       />
+
+      <MobileDataPricing />
+      <HostedUcPricing />
 
       <section className="night">
         <div className="shell pb-24 lg:pb-32">

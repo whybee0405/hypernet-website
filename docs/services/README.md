@@ -21,7 +21,7 @@ Flowgear) are named where knowing them helps a buyer decide, which is how the br
 
 Existing Hypernet services that were already on the site and are kept:
 
-- **VoIP / business telephony**: `/services/voip` (was `/voip`, redirected)
+- **Hosted phone system**: merged into Unified Communications, `/services/unified-communications` (`/voip` and `/services/voip` redirect there)
 - **Business internet**: `/services/connectivity` (was `/connectivity`, redirected). The Connectivity
   brochure's fibre, wireless and SD-WAN material was merged into this page rather than creating a
   second "internet" page.

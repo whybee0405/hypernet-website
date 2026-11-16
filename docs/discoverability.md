@@ -79,7 +79,6 @@ sans-serif font when rendering the social-card text.
 | /insights | Business Internet, VoIP & Security Insights &#124; Hypernet | 54 | 145 |
 | /services/connectivity | Business Fibre, Wireless & Internet Failover &#124; Hypernet | 55 | 147 |
 | /services/cloudpath | CloudPath SD-WAN & Internet Failover &#124; Hypernet | 47 | 148 |
-| /services/voip | Business VoIP & Hosted Phone Lines &#124; Hypernet | 45 | 152 |
 | /services/unified-communications | Cloud PBX, Video Meetings & Team Chat &#124; Hypernet | 48 | 152 |
 | /services/contact-centre | Omni-channel Contact Centre Software &#124; Hypernet | 47 | 148 |
 | /services/secure-business | Secure Business & Cloudflare Zero Trust &#124; Hypernet | 50 | 150 |

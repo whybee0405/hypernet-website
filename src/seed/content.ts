@@ -19,7 +19,7 @@ export const HOME_COPY = {
   headlineLead: 'Connectivity with',
   headlineAccent: 'a human voice.',
   subtext:
-    'Internet, phone systems, customer contact, security and system integration for South African businesses, from single sites to national networks.',
+    'Internet, phone systems, customer contact centre solutions, security and integration for South African businesses, from single sites to national networks.',
   heroCallout: { value: 'One provider', label: 'Every service, one service desk' },
   sectorsHeading: 'Industries',
   sectors: [
@@ -46,16 +46,16 @@ export const HOME_COPY = {
       linkLabel: 'Business internet',
     },
     {
-      title: 'VoIP',
-      body: 'Hosted lines that keep your existing numbers and work on desk phones or a mobile app.',
+      title: 'Phone systems',
+      body: 'Hosted extensions that keep your existing numbers and work on a desk phone, PC or mobile app.',
       points: [
         'Number porting handled by us',
         'Desk phones, softphones or both',
         'Call recording and reporting',
         'Call quality monitored with your connection',
       ],
-      href: '/services/voip',
-      linkLabel: 'Business VoIP',
+      href: '/services/unified-communications',
+      linkLabel: 'Unified Communications',
     },
   ],
   processHeading: 'Support process',

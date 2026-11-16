@@ -54,9 +54,15 @@ export function ServicePage({
                     Book a free consultation
                     <ArrowRight size={16} weight="bold" aria-hidden="true" className="btn-arrow" />
                   </Link>
-                  <a href="#packages" className="btn btn-secondary">
-                    View packages
-                  </a>
+                  {service.pricingHref ? (
+                    <Link href={service.pricingHref} className="btn btn-secondary">
+                      View prices
+                    </Link>
+                  ) : (
+                    <a href="#packages" className="btn btn-secondary">
+                      View packages
+                    </a>
+                  )}
                 </div>
                 {service.poweredBy ? (
                   <p className="mt-8 text-[0.875rem] text-slate">
@@ -115,7 +121,9 @@ export function ServicePage({
       />
 
       {/* ---------------------------------------------------------- Module */}
-      {service.module ? <ServiceModule kind={service.module} /> : null}
+      {[service.module ?? []].flat().map((kind) => (
+        <ServiceModule key={kind} kind={kind} />
+      ))}
 
       {/* ------------------------------------------------- Features + fit */}
       <section className="night relative">

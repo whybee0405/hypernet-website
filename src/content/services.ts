@@ -90,7 +90,10 @@ export type Service = {
   features: ServiceFeature[]
   fitHeading: string
   fit: string[]
-  module?: ServiceModule
+  /** Bespoke middle section(s), rendered in order. */
+  module?: ServiceModule | ServiceModule[]
+  /** Published prices for this service, if any. */
+  pricingHref?: string
   related: string[]
   ctaHeading: string
   ctaBody: string
@@ -185,7 +188,7 @@ export const SERVICES: Service[] = [
       'Sites without fibre coverage',
     ],
     module: 'process',
-    related: ['cloudpath', 'voip', 'secure-business'],
+    related: ['cloudpath', 'unified-communications', 'secure-business'],
     ctaHeading: 'Check availability at your address',
     ctaBody:
       'Send us your address and we will tell you which connections can be installed there and what they cost.',
@@ -277,33 +280,34 @@ export const SERVICES: Service[] = [
 
   /* ------------------------------------------------------------ COMMUNICATE */
   {
-    slug: 'voip',
-    name: 'Business VoIP',
-    short: 'Hosted phone lines that keep your existing numbers.',
+    slug: 'unified-communications',
+    name: 'Unified Communications',
+    short: 'Hosted phone extensions that keep your existing numbers.',
     pillar: 'communicate',
-    image: '/brand/voip.webp',
+    image: '/brand/unified-communications.webp',
     photo: '/brand/people/svc-voip.webp',
     photoAlt: 'Illustration: A receptionist answering a desk phone at a professional practice in Cape Town',
-    metaTitle: 'Business VoIP phone lines',
+    metaTitle: 'Unified Communications: hosted business phone system',
     metaDescription:
-      'Hosted VoIP lines for South African businesses. Keep your existing numbers, use desk phones or a mobile app, and have call quality monitored with your connection.',
+      'Hosted phone extensions for South African businesses from R75 a month. Keep your existing numbers, take calls on a desk phone, PC or mobile app, and add video meetings.',
     title: 'Hosted business',
-    titleAccent: 'phone lines.',
-    lead: 'Keep your existing numbers, take calls on a desk phone or a mobile app, and get consistent call quality because we also manage the connection underneath.',
+    titleAccent: 'phone system.',
+    lead: 'Keep your existing numbers and take calls on a desk phone, the PC app or the mobile app. Video and team meetings can be added on the same platform, and we manage the connection underneath.',
     statement:
-      'Hosted lines keep your existing numbers, ring whoever is free to answer, and are monitored for call quality alongside the connection they run on.',
+      'Every extension keeps your existing numbers, rings on the desk phone, the PC and the mobile app, and is monitored for call quality alongside the connection it runs on.',
     statementAccent: ['existing', 'numbers,'],
-    packagesHeading: 'VoIP packages',
-    packagesIntro: 'Start with the lines you need and add or remove lines at any time.',
+    packagesHeading: 'What you get',
+    packagesIntro:
+      'Packages start at R75 a month for one extension, month to month with one calendar month’s notice.',
     packages: [
       {
-        name: 'Hosted lines',
-        tag: 'Every plan',
-        summary: 'Your existing numbers, hosted in the cloud.',
+        name: 'Hosted extensions',
+        tag: 'Every package',
+        summary: 'Your existing numbers, on every device.',
         points: [
           'Number porting handled by us',
-          'Desk phones, a mobile app, or both on one extension',
-          'One call rate anywhere in South Africa',
+          'Desk phone, PC app and mobile app on one extension',
+          'Free calls between extensions and between branches',
         ],
       },
       {
@@ -311,107 +315,44 @@ export const SERVICES: Service[] = [
         tag: 'Included',
         summary: 'The call features most offices use.',
         points: [
-          'Auto-attendant and ring groups set by business hours',
-          'Call recording and reporting',
+          'Auto attendant (virtual reception) and ring groups set by business hours',
+          'Call recording, kept for 30 days',
           'Voicemail to email, forwarding, hold and transfer',
         ],
       },
       {
-        name: 'Call quality',
-        tag: 'On Hypernet connections',
-        summary: 'Call quality monitored with your line.',
+        name: 'Meetings and collaboration',
+        tag: 'Additional cost',
+        summary: 'Added on the same platform when you need it.',
         points: [
-          'Voice prioritised over backups and file sync',
-          'Jitter and packet loss monitored on your line',
-          'Early warning when a line starts to degrade',
+          'Multi-party HD video meetings',
+          'Team meetings with screen sharing',
+          'Group chat and file sharing',
         ],
       },
     ],
-    featuresHeading: 'Hosted line features',
+    featuresHeading: 'Phone system features',
     features: [
       {
         title: 'Calls on any device',
-        body: 'One extension rings on the desk phone and the mobile app at the same time.',
+        body: 'One extension rings on the desk phone, the PC app and the mobile app at the same time.',
       },
       {
-        title: 'Flexible line count',
-        body: 'Add or remove lines as your team changes, without a new contract.',
+        title: 'Month to month',
+        body: 'No fixed term. Cancel with one calendar month’s notice, and add extensions as your team grows.',
       },
       {
-        title: 'Call recording',
-        body: 'Record calls for training or disputes, with retention set to your requirements.',
+        title: 'Competitive call rates',
+        body: 'Show us a written call rate from another provider and we will beat it.',
+      },
+      {
+        title: 'Call quality monitored',
+        body: 'On a Hypernet connection, voice is prioritised over backups and file sync, and jitter and packet loss are monitored on your line.',
       },
       {
         title: 'One provider for calls and internet',
         body: 'We manage both, so we can trace a call fault from the handset to the network.',
       },
-    ],
-    fitHeading: 'Suited to',
-    fit: [
-      'Practices and offices with frequent client calls',
-      'Shops that want the landline number on a mobile',
-      'Businesses that want one bill for phones and internet',
-      'Teams with poor call quality today',
-    ],
-    module: 'porting',
-    related: ['unified-communications', 'contact-centre', 'connectivity'],
-    ctaHeading: 'Move your lines to Hypernet',
-    ctaBody:
-      'Tell us how your calls sound today. We will check whether the problem is the line, the configuration or the handsets before you spend anything.',
-  },
-  {
-    slug: 'unified-communications',
-    name: 'Unified Communications',
-    short: 'Cloud PBX, video, chat and mobile apps on one platform.',
-    pillar: 'communicate',
-    image: '/brand/unified-communications.webp',
-    photo: '/brand/people/svc-unified-communications.webp',
-    photoAlt: 'Illustration: Four colleagues in a meeting room on a video call with remote team members',
-    metaTitle: 'Unified Communications: cloud PBX, video and team chat',
-    metaDescription:
-      'A carrier-grade cloud PBX with video meetings, team chat and mobile apps that work the same on every device. Set up, migrated and supported by Hypernet.',
-    title: 'Calls, video and chat on',
-    titleAccent: 'one platform.',
-    lead: 'Unified Communications combines a cloud phone system, video meetings, team chat and file sharing. It works the same on desk phones, laptops, browsers and mobile apps.',
-    statement:
-      'Most teams use separate tools for calls, meetings, chat and files. Unified Communications puts them on one platform, and new users sign in with one click from an email invitation.',
-    statementAccent: ['one', 'platform,'],
-    packagesHeading: 'Platform features',
-    packagesIntro: 'One licence per user includes the full feature set.',
-    packages: [
-      {
-        name: 'Cloud PBX',
-        tag: 'Phone system',
-        summary: 'A complete switchboard with no hardware on site.',
-        points: [
-          'Auto-receptionist and multi-level IVR menus',
-          'Call reports and audit trails',
-          'Find-me/follow-me and visual voicemail',
-        ],
-      },
-      {
-        name: 'Collaboration',
-        tag: 'Team tools',
-        summary: 'Meetings and chat alongside your calls.',
-        points: [
-          'Group chat, file sharing and screen sharing',
-          'Multi-party HD video conferencing',
-          'Fax-to-email',
-        ],
-      },
-      {
-        name: 'Mobility',
-        tag: 'Mobile app',
-        summary: 'Your office number on your phone.',
-        points: [
-          'iOS and Android apps',
-          'HD voice and video over Wi-Fi, 3G or LTE',
-          'The same features on desktop, web and IP phones',
-        ],
-      },
-    ],
-    featuresHeading: 'Reliability and integration',
-    features: [
       {
         title: 'Geo-redundant hosting',
         body: 'The platform runs on an active-active cluster across data centres, so calls continue if one site fails.',
@@ -424,31 +365,20 @@ export const SERVICES: Service[] = [
         title: 'Integrations',
         body: 'Connects to Office 365, CRM systems and Active Directory or LDAP.',
       },
-      {
-        title: 'Live monitoring',
-        body: 'Usage reports and a real-time dashboard with alerts.',
-      },
-      {
-        title: 'Migration',
-        body: 'Users and handsets are loaded in bulk, and your numbers move with you.',
-      },
-      {
-        title: 'One-click onboarding',
-        body: 'New users receive an email invitation and sign in with one click.',
-      },
     ],
     fitHeading: 'Suited to',
     fit: [
-      'Hybrid teams',
+      'Practices and offices with frequent client calls',
       'Businesses replacing an on-site PBX',
-      'Firms using Office 365 and a CRM',
-      'Teams paying for several separate apps',
+      'Hybrid teams who take calls away from the office',
+      'Shops that want the landline number on a mobile',
     ],
-    module: 'compare',
-    related: ['voip', 'contact-centre', 'integration-suite'],
-    ctaHeading: 'Replace your on-site PBX',
+    module: ['porting', 'compare'],
+    pricingHref: '/pricing#hosted-uc',
+    related: ['contact-centre', 'connectivity', 'integration-suite'],
+    ctaHeading: 'Move your phones to Hypernet',
     ctaBody:
-      'We plan the move from your current system, port your numbers and train your team.',
+      'Tell us how your calls sound today. We will check whether the problem is the line, the configuration or the handsets before you spend anything.',
   },
   {
     slug: 'contact-centre',
@@ -529,7 +459,7 @@ export const SERVICES: Service[] = [
       'Faster response times',
     ],
     module: 'channels',
-    related: ['unified-communications', 'voip', 'integration-suite'],
+    related: ['unified-communications', 'connectivity', 'integration-suite'],
     ctaHeading: 'Arrange a consultation',
     ctaBody:
       'We map how customers contact you today and show you how the platform would handle the same enquiries.',

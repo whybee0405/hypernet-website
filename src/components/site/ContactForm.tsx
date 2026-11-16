@@ -11,8 +11,7 @@ const INITIAL: LeadState = { status: 'idle' }
 const INTERESTS = [
   { value: 'connectivity', label: 'Business internet' },
   { value: 'cloudpath', label: 'CloudPath SD-WAN' },
-  { value: 'voip', label: 'Business VoIP' },
-  { value: 'both', label: 'Internet and VoIP together' },
+  { value: 'both', label: 'Internet and phones together' },
   { value: 'unified-communications', label: 'Unified Communications' },
   { value: 'contact-centre', label: 'Omni-channel Contact Centre' },
   { value: 'secure-business', label: 'Secure Business' },

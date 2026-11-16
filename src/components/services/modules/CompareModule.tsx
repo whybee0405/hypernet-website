@@ -7,7 +7,7 @@ const ROWS = [
   { label: 'Redundancy', ours: 'Geo-redundant cluster', typical: 'Single site, or a paid add-on' },
   { label: 'Architecture', ours: 'Active-active', typical: 'Active-passive or single server' },
   { label: 'Survives a data centre outage', ours: true, typical: false },
-  { label: 'Video, chat and file sharing built in', ours: true, typical: 'Often a separate app' },
+  { label: 'Video, chat and file sharing on the same platform', ours: true, typical: 'Often a separate app' },
   { label: 'Office 365, CRM and LDAP integration', ours: true, typical: 'Varies, often extra' },
   { label: 'Fraud controls and daily spend limits', ours: true, typical: 'Rarely by default' },
   { label: 'One-click user onboarding', ours: true, typical: 'Manual set-up per user' },
